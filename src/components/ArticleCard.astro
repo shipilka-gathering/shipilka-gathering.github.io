@@ -1,60 +1,60 @@
 ---
-import type { Article } from '../data/articles';
+import type { Article } from "../data/articles";
 
 const { article } = Astro.props as { article: Article };
-const date = new Date(article.date).toLocaleDateString('ja-JP', {
-	year: 'numeric',
-	month: 'short',
-	day: 'numeric',
+const date = new Date(article.date).toLocaleDateString("ja-JP", {
+  year: "numeric",
+  month: "short",
+  day: "numeric",
 });
 const preview = article.body[1] ?? article.body[0];
 ---
 
 <article class="article-card">
-	<div class="meta">
-		<p class="eyebrow">Article</p>
-		<p class="date">{date}</p>
-	</div>
-	<h3><a href={`/articles/${article.slug}/`}>{article.title}</a></h3>
-	<p class="preview">{preview}</p>
+  <div class="meta">
+    <p class="eyebrow">Article</p>
+    <p class="date">{date}</p>
+  </div>
+  <h3><a href={`/articles/${article.slug}/`}>{article.title}</a></h3>
+  <p class="preview">{preview}</p>
 </article>
 
 <style>
-	.article-card {
-		padding: 1.2rem 1.3rem;
-		border-radius: 1rem;
-		background: rgba(255, 255, 255, 0.9);
-		border: 1px solid rgba(255, 255, 255, 0.3);
-		box-shadow: 0 12px 32px rgba(0, 26, 77, 0.12);
-	}
+  .article-card {
+    padding: 1.2rem 1.3rem;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 12px 32px rgba(0, 26, 77, 0.12);
+  }
 
-	.meta {
-		display: flex;
-		align-items: baseline;
-		gap: 0.65rem;
-	}
+  .meta {
+    display: flex;
+    align-items: baseline;
+    gap: 0.65rem;
+  }
 
-	.date {
-		margin: 0;
-		color: var(--muted);
-		font-weight: 700;
-	}
+  .date {
+    margin: 0;
+    color: var(--muted);
+    font-weight: 700;
+  }
 
-	h3 {
-		margin: 0.2rem 0 0.4rem;
-	}
+  h3 {
+    margin: 0.2rem 0 0.4rem;
+  }
 
-	h3 a {
-		color: inherit;
-		text-decoration: none;
-	}
+  h3 a {
+    color: inherit;
+    text-decoration: none;
+  }
 
-	h3 a:hover {
-		text-decoration: underline;
-	}
+  h3 a:hover {
+    text-decoration: underline;
+  }
 
-	.preview {
-		margin: 0;
-		color: var(--ink-80);
-	}
+  .preview {
+    margin: 0;
+    color: var(--ink-80);
+  }
 </style>

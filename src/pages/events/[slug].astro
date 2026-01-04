@@ -1,126 +1,135 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Rules from '../../components/Rules.astro';
-import { events, type Event } from '../../data/events';
+import Layout from "../../layouts/Layout.astro";
+import Rules from "../../components/Rules.astro";
+import { events, type Event } from "../../data/events";
 
 export function getStaticPaths() {
-	return events.map((event) => ({
-		params: { slug: event.slug },
-		props: { event },
-	}));
+  return events.map((event) => ({
+    params: { slug: event.slug },
+    props: { event },
+  }));
 }
 
 const { event } = Astro.props as { event: Event };
 const date = new Date(event.date);
-const formattedDate = date.toLocaleString('ja-JP', {
-	year: 'numeric',
-	month: 'long',
-	day: 'numeric',
-	weekday: 'short',
-	hour: '2-digit',
-	minute: '2-digit',
-	timeZoneName: 'short',
-	timeZone: 'Asia/Tokyo',
+const formattedDate = date.toLocaleString("ja-JP", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+  weekday: "short",
+  hour: "2-digit",
+  minute: "2-digit",
+  timeZoneName: "short",
+  timeZone: "Asia/Tokyo",
 });
 ---
 
-<Layout title={`${event.title} | シピルカくん集会`} description={event.description}>
-	<article class="card event-detail">
-		<p class="eyebrow">Event</p>
-		<h1>{event.title}</h1>
-		<dl>
-			<div>
-				<dt>開催日時</dt>
-				<dd>{formattedDate}</dd>
-			</div>
-			{event.tags && (
-				<div>
-					<dt>タグ</dt>
-					<dd class="tags">
-						{event.tags.map((tag) => (
-							<span class="pill">{tag}</span>
-						))}
-					</dd>
-				</div>
-			)}
-		</dl>
+<Layout
+  title={`${event.title} | シピルカくん集会`}
+  description={event.description}
+>
+  <article class="card event-detail">
+    <p class="eyebrow">Event</p>
+    <h1>{event.title}</h1>
+    <dl>
+      <div>
+        <dt>開催日時</dt>
+        <dd>{formattedDate}</dd>
+      </div>
+      {
+        event.tags && (
+          <div>
+            <dt>タグ</dt>
+            <dd class="tags">
+              {event.tags.map((tag) => (
+                <span class="pill">{tag}</span>
+              ))}
+            </dd>
+          </div>
+        )
+      }
+    </dl>
 
-		{event.description && <p class="lead">{event.description}</p>}
+    {event.description && <p class="lead">{event.description}</p>}
 
-		{event.content && (
-			<div class="rich">
-				{event.content.map((paragraph) => (
-					<p>{paragraph}</p>
-				))}
-			</div>
-		)}
+    {
+      event.content && (
+        <div class="rich">
+          {event.content.map((paragraph) => (
+            <p>{paragraph}</p>
+          ))}
+        </div>
+      )
+    }
 
-		{event.xPost && (
-			<div class="embed">
-				<p class="eyebrow">告知ポスト</p>
-				<a href={event.xPost} target="_blank" rel="noreferrer">
-					{event.xPost}
-				</a>
-			</div>
-		)}
+    {
+      event.xPost && (
+        <div class="embed">
+          <p class="eyebrow">告知ポスト</p>
+          <a href={event.xPost} target="_blank" rel="noreferrer">
+            {event.xPost}
+          </a>
+        </div>
+      )
+    }
 
-		<div class="rules-block">
-			<Rules />
-		</div>
-	</article>
+    <div class="rules-block">
+      <Rules />
+    </div>
+  </article>
 </Layout>
 
 <style>
-	h1 {
-		margin: 0.35rem 0;
-	}
+  h1 {
+    margin: 0.35rem 0;
+  }
 
-	dl {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-		gap: 0.6rem 1rem;
-		margin: 1rem 0;
-	}
+  dl {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 0.6rem 1rem;
+    margin: 1rem 0;
+  }
 
-	dt {
-		font-weight: 700;
-		color: var(--muted);
-	}
+  dt {
+    font-weight: 700;
+    color: var(--muted);
+  }
 
-	dd {
-		margin: 0.1rem 0 0;
-	}
+  dd {
+    margin: 0.1rem 0 0;
+  }
 
-	.lead {
-		margin: 0.5rem 0 1.2rem;
-		font-weight: 600;
-	}
+  .lead {
+    margin: 0.5rem 0 1.2rem;
+    font-weight: 600;
+  }
 
-	.rich {
-		display: grid;
-		gap: 0.8rem;
-	}
+  .rich {
+    display: grid;
+    gap: 0.8rem;
+  }
 
-	.embed {
-		margin-top: 1.2rem;
-		padding: 1rem;
-		border-radius: 0.85rem;
-		background: rgba(12, 51, 136, 0.07);
-		border: 1px solid rgba(12, 51, 136, 0.12);
-	}
+  .embed {
+    margin-top: 1.2rem;
+    padding: 1rem;
+    border-radius: 0.85rem;
+    background: rgba(12, 51, 136, 0.07);
+    border: 1px solid rgba(12, 51, 136, 0.12);
+  }
 
-	.embed a {
-		color: var(--ink);
-		text-decoration: none;
-		font-weight: 700;
-		word-break: break-all;
-	}
+  .embed a {
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 700;
+    word-break: break-all;
+  }
 
-	.embed a:hover {
-		text-decoration: underline;
-	}
+  .embed a:hover {
+    text-decoration: underline;
+  }
 
-	.rules-block {
-		margin-top: 1.5rem;
-	}
+  .rules-block {
+    margin-top: 1.5rem;
+  }
 </style>

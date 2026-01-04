@@ -1,160 +1,170 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Rules from '../components/Rules.astro';
-import EventCard from '../components/EventCard.astro';
-import { events } from '../data/events';
-import { articles } from '../data/articles';
+import Layout from "../layouts/Layout.astro";
+import Rules from "../components/Rules.astro";
+import EventCard from "../components/EventCard.astro";
+import { events } from "../data/events";
+import { articles } from "../data/articles";
 
 const sortedEvents = [...events].sort(
-	(a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
 );
 const latestEvent = sortedEvents[0];
 const featuredArticle = articles[0];
 ---
 
 <Layout
-	title="シピルカくん集会"
-	description="VRChatで開催しているシピルカくん集会の告知サイト。過去回のアーカイブやルールをまとめています。"
+  title="シピルカくん集会"
+  description="VRChatで開催しているシピルカくん集会の告知サイト。過去回のアーカイブやルールをまとめています。"
 >
-	<section class="hero card">
-		<p class="eyebrow">Shipilka Gathering</p>
-		<h1>シピルカくん集会</h1>
-		<p>
-			VRChatで開催しているシピルカくんのファン集会です。開催情報や参加ルールをまとめました。初参加の方も、久しぶりの方も歓迎します。
-		</p>
-		<div class="hero-actions">
-			<a class="button" href={`/events/${latestEvent.slug}/`}>最新の集会を見る</a>
-			<a class="button ghost" href="/events/">イベント一覧へ</a>
-		</div>
-	</section>
+  <section class="hero card">
+    <p class="eyebrow">Shipilka Gathering</p>
+    <h1>シピルカくん集会</h1>
+    <p>
+      VRChatで開催しているシピルカくんのファン集会です。開催情報や参加ルールをまとめました。初参加の方も、久しぶりの方も歓迎します。
+    </p>
+    <div class="hero-actions">
+      <a class="button" href={`/events/${latestEvent.slug}/`}
+        >最新の集会を見る</a
+      >
+      <a class="button ghost" href="/events/">イベント一覧へ</a>
+    </div>
+  </section>
 
-	<section class="card">
-		<div class="section-header">
-			<div>
-				<p class="eyebrow">Highlight</p>
-				<h2>最新の集会</h2>
-			</div>
-			<a class="text-link" href="/events/">過去の集会をすべて見る →</a>
-		</div>
-		<EventCard event={latestEvent} compact={false} />
-	</section>
+  <section class="card">
+    <div class="section-header">
+      <div>
+        <p class="eyebrow">Highlight</p>
+        <h2>最新の集会</h2>
+      </div>
+      <a class="text-link" href="/events/">過去の集会をすべて見る →</a>
+    </div>
+    <EventCard event={latestEvent} compact={false} />
+  </section>
 
-	<section id="rules" class="card">
-		<Rules />
-	</section>
+  <section id="rules" class="card">
+    <Rules />
+  </section>
 
-	<section class="card article-callout">
-		<div>
-			<p class="eyebrow">Blog</p>
-			<h2>記事</h2>
-			<p>集会の裏話やメモをゆるく掲載します。</p>
-			{featuredArticle && (
-				<div class="article-highlight">
-					<p class="label">最新</p>
-					<a href={`/articles/${featuredArticle.slug}/`}>{featuredArticle.title}</a>
-				</div>
-			)}
-		</div>
-		<a class="button ghost" href="/articles/">記事を読む</a>
-	</section>
+  <section class="card article-callout">
+    <div>
+      <p class="eyebrow">Blog</p>
+      <h2>記事</h2>
+      <p>集会の裏話やメモをゆるく掲載します。</p>
+      {
+        featuredArticle && (
+          <div class="article-highlight">
+            <p class="label">最新</p>
+            <a href={`/articles/${featuredArticle.slug}/`}>
+              {featuredArticle.title}
+            </a>
+          </div>
+        )
+      }
+    </div>
+    <a class="button ghost" href="/articles/">記事を読む</a>
+  </section>
 </Layout>
 
 <style>
-	.hero {
-		display: grid;
-		gap: 0.75rem;
-		position: relative;
-		overflow: hidden;
-	}
+  .hero {
+    display: grid;
+    gap: 0.75rem;
+    position: relative;
+    overflow: hidden;
+  }
 
-	.hero::after {
-		content: '';
-		position: absolute;
-		inset: -40% 60% auto auto;
-		width: 320px;
-		aspect-ratio: 1;
-		border-radius: 999px;
-		background: radial-gradient(circle, rgba(244, 194, 31, 0.35), transparent 65%);
-		filter: blur(12px);
-		pointer-events: none;
-	}
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: -40% 60% auto auto;
+    width: 320px;
+    aspect-ratio: 1;
+    border-radius: 999px;
+    background: radial-gradient(
+      circle,
+      rgba(244, 194, 31, 0.35),
+      transparent 65%
+    );
+    filter: blur(12px);
+    pointer-events: none;
+  }
 
-	h1 {
-		margin: 0;
-		font-size: clamp(1.9rem, 3vw, 2.3rem);
-	}
+  h1 {
+    margin: 0;
+    font-size: clamp(1.9rem, 3vw, 2.3rem);
+  }
 
-	.hero-actions {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.75rem;
-		margin-top: 0.5rem;
-	}
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+  }
 
-	.section-header {
-		display: flex;
-		align-items: baseline;
-		justify-content: space-between;
-		gap: 1rem;
-		margin-bottom: 1rem;
-	}
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
 
-	.section-header h2 {
-		margin: 0.1rem 0 0;
-	}
+  .section-header h2 {
+    margin: 0.1rem 0 0;
+  }
 
-	.text-link {
-		text-decoration: none;
-		color: var(--ink);
-		font-weight: 700;
-	}
+  .text-link {
+    text-decoration: none;
+    color: var(--ink);
+    font-weight: 700;
+  }
 
-	.text-link:hover {
-		text-decoration: underline;
-	}
+  .text-link:hover {
+    text-decoration: underline;
+  }
 
-	.article-callout {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 1rem;
-	}
+  .article-callout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
 
-	.article-highlight {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.6rem;
-		margin-top: 0.4rem;
-	}
+  .article-highlight {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 0.4rem;
+  }
 
-	.article-highlight a {
-		color: var(--ink);
-		font-weight: 700;
-		text-decoration: none;
-	}
+  .article-highlight a {
+    color: var(--ink);
+    font-weight: 700;
+    text-decoration: none;
+  }
 
-	.article-highlight a:hover {
-		text-decoration: underline;
-	}
+  .article-highlight a:hover {
+    text-decoration: underline;
+  }
 
-	.label {
-		margin: 0;
-		padding: 0.3rem 0.65rem;
-		border-radius: 999px;
-		background: rgba(12, 51, 136, 0.12);
-		font-weight: 700;
-		color: var(--ink);
-	}
+  .label {
+    margin: 0;
+    padding: 0.3rem 0.65rem;
+    border-radius: 999px;
+    background: rgba(12, 51, 136, 0.12);
+    font-weight: 700;
+    color: var(--ink);
+  }
 
-	@media (max-width: 720px) {
-		.section-header {
-			flex-direction: column;
-			align-items: flex-start;
-		}
+  @media (max-width: 720px) {
+    .section-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
 
-		.article-callout {
-			flex-direction: column;
-			align-items: flex-start;
-		}
-	}
+    .article-callout {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
 </style>
