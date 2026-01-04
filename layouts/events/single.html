@@ -1,0 +1,18 @@
+{{ define "title" }}
+{{- .Title -}}
+{{ end }}
+
+{{ define "main" }}
+{{ "<!-- events/single.html start -->" | safeHTML }}
+
+<ul>
+  {{ range .Params.tags -}}
+  <li><a href="{{ print " /tags/" . | relURL }}/">{{ . }}</a></li>
+  {{ end -}}
+</ul>
+
+<h1>{{ .Title }}</h1>
+{{ .Content }}
+
+{{ "<!-- events/single.html end -->" | safeHTML }}
+{{ end }}

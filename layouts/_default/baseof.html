@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>{{ block "title" . }}{{ end }}</title>
+
+  {{ partial "twitter_cards.html" . }}
+
+  {{- $scss := resources.Get "scss/main.scss" -}}
+  {{- $css := $scss | toCSS (dict "outputStyle" "compressed" "enableSourceMap" (not hugo.IsProduction)) -}}
+  {{- if hugo.IsProduction -}}
+  {{- $css = $css | minify | fingerprint -}}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+  {{- else -}}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}">
+  {{- end -}}
+</head>
+
+<body>
+  {{ "<!-- _default/baseof.html start -->" | safeHTML }}
+
+  <header>
+    <img class="logo" src="/images/logo-wide.png" alt="{{ .Site.Title }}">
+    <nav>
+      <ul>
+        <li><a href="{{ relURL "/" }}">トップ</a></li>
+        <li><a href="{{ relURL "events/" }}">イベント</a></li>
+        <li><a href="{{ relURL "tags/" }}">タグ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+  {{ block "main" . }}{{ end }}
+  </main>
+
+  {{ "<!-- _default/baseof.html end -->" | safeHTML }}
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+{{ define "title" }}
+{{- .Site.Title -}}
+{{ end }}
+
+{{ define "main" }}
+{{ "<!-- _default/index.html start -->" | safeHTML }}
+
+{{ .Content }}
+
+{{ range first 1 (sort (where .Site.RegularPages "Section" "events") "Date" "desc") -}}
+<article>
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+</article>
+{{ end -}}
+
+{{ "<!-- _default/index.html end -->" | safeHTML }}
+{{ end }}

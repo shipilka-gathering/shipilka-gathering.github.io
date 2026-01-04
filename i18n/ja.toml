@@ -1,0 +1,56 @@
+[rules.title]
+other = "行動規範（ルール）"
+
+[rules.must.title]
+other = "義務事項（しなければならないこと）"
+
+[rules.must.useAvatar]
+other = "シピルカくんのアバターを使用してください。"
+
+[rules.must.useAvatarBody]
+other = "最低限、シピルカくんの顔（Body）を使用してください。"
+
+[rules.must.followStaff]
+other = "スタッフの指示があった場合は、それに従ってください。"
+
+[rules.must.mayAskMoveInstance]
+other = "混雑状況によっては、新規インスタンスに移動をお願いする場合があります。"
+
+[rules.can.title]
+other = "できること"
+
+[rules.can.sampleAvatarAllowed]
+other = "サンプルアバターで参加することができます。"
+
+[rules.can.askStaffIfNoSampleAvatar]
+other = "サンプルアバターをお持ちでない場合は、スタッフにお声がけください。"
+
+[rules.can.canTakePhotos]
+other = "インスタンス内では撮影することができます。"
+
+[rules.can.photosMayBeUsed]
+other = "撮影した画像などはSNSや集会の告知などで使用することがあります。"
+
+[rules.mustNot.title]
+other = "禁止事項（してはいけないこと）"
+
+[rules.mustNot.prohibitedAvatarsHeading]
+other = "以下に該当するアバターは使用してはいけません。"
+
+[rules.mustNot.prohibitedAvatarSensitive]
+other = "センシティブな内容が含まれるアバター"
+
+[rules.mustNot.prohibitedAvatarExtremeChimera]
+other = "アバターの名誉を毀損する極端なキメラアバター"
+
+[rules.mustNot.prohibitedAvatarToSViolation]
+other = "利用規約に違反するアバター"
+
+[rules.mustNot.prohibitedAvatarIllegalUpload]
+other = "違法アップロードされたアバター"
+
+[rules.mustNot.noHarassment]
+other = "ハラスメント行為をしてはいけません。"
+
+[rules.mustNot.staffMayRemove]
+other = "スタッフの裁量で予告なくインスタンスから退場させていただくことがあります。"
