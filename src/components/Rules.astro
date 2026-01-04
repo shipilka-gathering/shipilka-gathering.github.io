@@ -1,0 +1,100 @@
+---
+const must = [
+	'シピルカくんのアバターを使用してください。',
+	'最低限、シピルカくんの顔（Body）を使用してください。',
+	'スタッフの指示があった場合は、それに従ってください。',
+	'混雑状況によっては、新規インスタンスに移動をお願いする場合があります。',
+];
+
+const can = [
+	'サンプルアバターで参加することができます。',
+	'サンプルアバターをお持ちでない場合は、スタッフにお声がけください。',
+	'インスタンス内では撮影することができます。',
+	'撮影した画像などはSNSや集会の告知などで使用することがあります。',
+];
+
+const mustNot = [
+	'以下に該当するアバターは使用してはいけません。',
+	'センシティブな内容が含まれるアバター',
+	'アバターの名誉を毀損する極端なキメラアバター',
+	'利用規約に違反するアバター',
+	'違法アップロードされたアバター',
+	'ハラスメント行為をしてはいけません。',
+	'スタッフの裁量で予告なくインスタンスから退場させていただくことがあります。',
+];
+---
+
+<section class="rules">
+	<p class="eyebrow">行動規範（ルール）</p>
+	<h2>集会に参加する前に</h2>
+	<div class="rule-grid">
+		<div class="rule-block">
+			<h3>義務事項（やること）</h3>
+			<ul>
+				{must.map((rule) => (
+					<li>{rule}</li>
+				))}
+			</ul>
+		</div>
+		<div class="rule-block">
+			<h3>できること</h3>
+			<ul>
+				{can.map((rule) => (
+					<li>{rule}</li>
+				))}
+			</ul>
+		</div>
+		<div class="rule-block">
+			<h3>禁止事項（やらないこと）</h3>
+			<ul>
+				{mustNot.map((rule) => (
+					<li>{rule}</li>
+				))}
+			</ul>
+		</div>
+	</div>
+</section>
+
+<style>
+	.rules {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	h2 {
+		margin: 0;
+		font-size: 1.35rem;
+	}
+
+	h3 {
+		margin: 0 0 0.4rem;
+		font-size: 1.05rem;
+		color: var(--ink);
+	}
+
+	.rule-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+		gap: 1rem;
+	}
+
+	.rule-block {
+		padding: 1rem;
+		border-radius: 0.85rem;
+		background: rgba(12, 51, 136, 0.07);
+		border: 1px solid rgba(12, 51, 136, 0.12);
+		box-shadow: inset 0 0 0 0.5px rgba(255, 255, 255, 0.65);
+	}
+
+	ul {
+		margin: 0.5rem 0 0;
+		padding-left: 1.1rem;
+		display: grid;
+		gap: 0.35rem;
+	}
+
+	li {
+		color: var(--ink-80);
+	}
+</style>

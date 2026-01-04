@@ -1,0 +1,48 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { articles, type Article } from '../../data/articles';
+
+export function getStaticPaths() {
+	return articles.map((article) => ({
+		params: { slug: article.slug },
+		props: { article },
+	}));
+}
+
+const { article } = Astro.props as { article: Article };
+const date = new Date(article.date).toLocaleDateString('ja-JP', {
+	year: 'numeric',
+	month: 'long',
+	day: 'numeric',
+});
+---
+
+<Layout title={`${article.title} | シピルカくん集会`}>
+	<article class="card article-detail">
+		<p class="eyebrow">Blog</p>
+		<h1>{article.title}</h1>
+		<p class="date">{date}</p>
+		<div class="body">
+			{article.body.map((paragraph) => (
+				<p>{paragraph}</p>
+			))}
+		</div>
+	</article>
+</Layout>
+
+<style>
+	h1 {
+		margin: 0.25rem 0 0.3rem;
+	}
+
+	.date {
+		margin: 0 0 1rem;
+		color: var(--muted);
+		font-weight: 700;
+	}
+
+	.body {
+		display: grid;
+		gap: 0.75rem;
+	}
+</style>

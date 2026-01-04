@@ -1,0 +1,32 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import { articles } from '../../data/articles';
+
+const sortedArticles = [...articles].sort(
+	(a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+);
+---
+
+<Layout title="記事一覧 | シピルカくん集会" description="シピルカくん集会のブログ記事一覧です。">
+	<section class="card">
+		<p class="eyebrow">Blog</p>
+		<h1>記事一覧</h1>
+		<div class="article-list">
+			{sortedArticles.map((article) => (
+				<ArticleCard article={article} />
+			))}
+		</div>
+	</section>
+</Layout>
+
+<style>
+	h1 {
+		margin: 0.2rem 0 1rem;
+	}
+
+	.article-list {
+		display: grid;
+		gap: 0.85rem;
+	}
+</style>
