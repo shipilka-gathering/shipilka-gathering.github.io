@@ -16,12 +16,21 @@ const featuredArticle = articles[0];
   title="シピルカくん集会"
   description="VRChatで開催しているシピルカくん集会の告知サイト。過去回のアーカイブやルールをまとめています。"
 >
-  <section class="hero card">
-    <p class="eyebrow">Shipilka Gathering</p>
-    <h1>シピルカくん集会</h1>
-    <p>
-      VRChatで開催しているシピルカくんのファン集会です。開催情報や参加ルールをまとめました。初参加の方も、久しぶりの方も歓迎します。
-    </p>
+  <img
+    src="/images/hero-image.png"
+    alt="たくさんのシピルカくんが月の周りに集まっているイラスト"
+    loading="lazy"
+  />
+  <section class="hero">
+    <div style="display: flex;">
+      <div>
+        <h1>月は満ちた<br />たくさんのシピルカくんが<br />待っている</h1>
+        <p>
+          シピルカくん集会は、主にVRChatで開催しているシピルカくんのファン集会です。開催情報や参加ルールをまとめました。初参加の方も、久しぶりの方も歓迎します。
+        </p>
+      </div>
+      
+    </div>
     <div class="hero-actions">
       <a class="button" href={`/events/${latestEvent.slug}/`}
         >最新の集会を見る</a
@@ -73,25 +82,16 @@ const featuredArticle = articles[0];
     overflow: hidden;
   }
 
-  .hero::after {
-    content: "";
-    position: absolute;
-    inset: -40% 60% auto auto;
-    width: 320px;
-    aspect-ratio: 1;
-    border-radius: 999px;
-    background: radial-gradient(
-      circle,
-      rgba(244, 194, 31, 0.35),
-      transparent 65%
-    );
-    filter: blur(12px);
-    pointer-events: none;
+  .hero h1 {
+    margin: 0;
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--ink-10);
   }
 
-  h1 {
+  .hero p {
     margin: 0;
-    font-size: clamp(1.9rem, 3vw, 2.3rem);
+    font-size: clamp(1rem, 1.25vw, 1.5rem);
+    color: var(--ink-10);
   }
 
   .hero-actions {
