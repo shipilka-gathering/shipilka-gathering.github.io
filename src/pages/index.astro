@@ -4,167 +4,187 @@ import Rules from "../components/Rules.astro";
 import EventCard from "../components/EventCard.astro";
 import { events } from "../data/events";
 import { articles } from "../data/articles";
+import HomeLayout from "../layouts/HomeLayout.astro";
 
 const sortedEvents = [...events].sort(
   (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
 );
 const latestEvent = sortedEvents[0];
 const featuredArticle = articles[0];
+const navItems = [
+  { href: "/", label: "ホーム" },
+  { href: "/events/", label: "イベント" },
+  { href: "/articles/", label: "記事" },
+  { href: "/#rules", label: "ルール" },
+];
 ---
 
-<Layout
+<HomeLayout
   title="シピルカくん集会"
   description="VRChatで開催しているシピルカくん集会の告知サイト。過去回のアーカイブやルールをまとめています。"
 >
-  <img
-    src="/images/hero-image.png"
-    alt="たくさんのシピルカくんが月の周りに集まっているイラスト"
-    loading="lazy"
-  />
-  <section class="hero">
-    <div style="display: flex;">
-      <div>
-        <h1>月は満ちた<br />たくさんのシピルカくんが<br />待っている</h1>
-        <p>
-          シピルカくん集会は、主にVRChatで開催しているシピルカくんのファン集会です。開催情報や参加ルールをまとめました。初参加の方も、久しぶりの方も歓迎します。
-        </p>
+  <header class="site-header">
+    <a class="brand" href="/">
+      <img
+        src="/images/logo-wide.png"
+        alt="シピルカくん集会のロゴ"
+        loading="lazy"
+      />
+    </a>
+    <nav>
+      {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+    </nav>
+  </header>
+  <main class="page-content">
+    <img
+      src="/images/hero-image.png"
+      alt="たくさんのシピルカくんが月の周りに集まっているイラスト"
+      loading="lazy"
+    />
+    <section class="hero">
+      <div style="display: flex;">
+        <div>
+          <h1>月は満ちた<br />たくさんのシピルカくんが<br />待っている</h1>
+          <p>
+            シピルカくん集会は、主にVRChatで開催しているシピルカくんのファン集会です。開催情報や参加ルールをまとめました。初参加の方も、久しぶりの方も歓迎します。
+          </p>
+        </div>
       </div>
-      
-    </div>
-    <div class="hero-actions">
-      <a class="button" href={`/events/${latestEvent.slug}/`}
-        >最新の集会を見る</a
-      >
-      <a class="button ghost" href="/events/">イベント一覧へ</a>
-    </div>
-  </section>
-
-  <section class="card">
-    <div class="section-header">
-      <div>
-        <p class="eyebrow">Highlight</p>
-        <h2>最新の集会</h2>
+      <div class="hero-actions">
+        <a class="button" href={`/events/${latestEvent.slug}/`}
+          >最新の集会を見る</a
+        >
+        <a class="button ghost" href="/events/">イベント一覧へ</a>
       </div>
-      <a class="text-link" href="/events/">過去の集会をすべて見る →</a>
-    </div>
-    <EventCard event={latestEvent} compact={false} />
-  </section>
+    </section>
 
-  <section id="rules" class="card">
-    <Rules />
-  </section>
+    <section class="card">
+      <div class="section-header">
+        <div>
+          <p class="eyebrow">Highlight</p>
+          <h2>最新の集会</h2>
+        </div>
+        <a class="text-link" href="/events/">過去の集会をすべて見る →</a>
+      </div>
+      <EventCard event={latestEvent} compact={false} />
+    </section>
 
-  <section class="card article-callout">
-    <div>
-      <p class="eyebrow">Blog</p>
-      <h2>記事</h2>
-      <p>集会の裏話やメモをゆるく掲載します。</p>
-      {
-        featuredArticle && (
-          <div class="article-highlight">
-            <p class="label">最新</p>
-            <a href={`/articles/${featuredArticle.slug}/`}>
-              {featuredArticle.title}
-            </a>
-          </div>
-        )
-      }
-    </div>
-    <a class="button ghost" href="/articles/">記事を読む</a>
-  </section>
-</Layout>
+    <section id="rules" class="card">
+      <Rules />
+    </section>
 
-<style>
-  .hero {
-    display: grid;
-    gap: 0.75rem;
-    position: relative;
-    overflow: hidden;
-  }
+    <section class="card article-callout">
+      <div>
+        <p class="eyebrow">Blog</p>
+        <h2>記事</h2>
+        <p>集会の裏話やメモをゆるく掲載します。</p>
+        {
+          featuredArticle && (
+            <div class="article-highlight">
+              <p class="label">最新</p>
+              <a href={`/articles/${featuredArticle.slug}/`}>
+                {featuredArticle.title}
+              </a>
+            </div>
+          )
+        }
+      </div>
+      <a class="button ghost" href="/articles/">記事を読む</a>
+    </section>
+  </main>
 
-  .hero h1 {
-    margin: 0;
-    font-size: clamp(2rem, 5vw, 3rem);
-    color: var(--ink-10);
-  }
+  <style>
+    .hero {
+      display: grid;
+      gap: 0.75rem;
+      position: relative;
+      overflow: hidden;
+    }
 
-  .hero p {
-    margin: 0;
-    font-size: clamp(1rem, 1.25vw, 1.5rem);
-    color: var(--ink-10);
-  }
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--ink-10);
+    }
 
-  .hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    margin-top: 0.5rem;
-  }
+    .hero p {
+      margin: 0;
+      font-size: clamp(1rem, 1.25vw, 1.5rem);
+      color: var(--ink-10);
+    }
 
-  .section-header {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-bottom: 1rem;
-  }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
 
-  .section-header h2 {
-    margin: 0.1rem 0 0;
-  }
-
-  .text-link {
-    text-decoration: none;
-    color: var(--ink);
-    font-weight: 700;
-  }
-
-  .text-link:hover {
-    text-decoration: underline;
-  }
-
-  .article-callout {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-  }
-
-  .article-highlight {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    margin-top: 0.4rem;
-  }
-
-  .article-highlight a {
-    color: var(--ink);
-    font-weight: 700;
-    text-decoration: none;
-  }
-
-  .article-highlight a:hover {
-    text-decoration: underline;
-  }
-
-  .label {
-    margin: 0;
-    padding: 0.3rem 0.65rem;
-    border-radius: 999px;
-    background: rgba(12, 51, 136, 0.12);
-    font-weight: 700;
-    color: var(--ink);
-  }
-
-  @media (max-width: 720px) {
     .section-header {
-      flex-direction: column;
-      align-items: flex-start;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-header h2 {
+      margin: 0.1rem 0 0;
+    }
+
+    .text-link {
+      text-decoration: none;
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .text-link:hover {
+      text-decoration: underline;
     }
 
     .article-callout {
-      flex-direction: column;
-      align-items: flex-start;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
     }
-  }
-</style>
+
+    .article-highlight {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-top: 0.4rem;
+    }
+
+    .article-highlight a {
+      color: var(--ink);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .article-highlight a:hover {
+      text-decoration: underline;
+    }
+
+    .label {
+      margin: 0;
+      padding: 0.3rem 0.65rem;
+      border-radius: 999px;
+      background: rgba(12, 51, 136, 0.12);
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    @media (max-width: 720px) {
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .article-callout {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</HomeLayout>
