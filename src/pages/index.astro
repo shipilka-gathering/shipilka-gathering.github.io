@@ -36,60 +36,80 @@ const navItems = [
     </nav>
   </header>
   <main class="page-content">
-    <img
-      src="/images/hero-image.png"
-      alt="たくさんのシピルカくんが月の周りに集まっているイラスト"
-      loading="lazy"
-    />
-    <section class="hero">
-      <div style="display: flex;">
-        <div>
-          <h1>月は満ちた<br />たくさんのシピルカくんが<br />待っている</h1>
-          <p>
-            シピルカくん集会は、主にVRChatで開催しているシピルカくんのファン集会です。開催情報や参加ルールをまとめました。初参加の方も、久しぶりの方も歓迎します。
-          </p>
-        </div>
-      </div>
-      <div class="hero-actions">
-        <a class="button" href={`/events/${latestEvent.slug}/`}
-          >最新の集会を見る</a
+    <section>
+      <img
+        src="/images/hero-image.png"
+        alt="たくさんのシピルカくんが月の周りに集まっているイラスト"
+        loading="lazy"
+        class="hero-image"
+      />
+    </section>
+    <div class="page-shell">
+      <section class="hero">
+        <div
+          style="display: flex; align-items: center; gap: 1rem; padding: 5rem;"
         >
-        <a class="button ghost" href="/events/">イベント一覧へ</a>
-      </div>
-    </section>
-
-    <section class="card">
-      <div class="section-header">
-        <div>
-          <p class="eyebrow">Highlight</p>
-          <h2>最新の集会</h2>
+          <div>
+            <h1>月は満ちた<br />たくさんのシピルカくんが<br />待っている</h1>
+            <p>
+              シピルカくん集会は、主にVRChatで開催しているシピルカくんのアバター集会です。初参加の方も、久しぶりの方も歓迎します！
+            </p>
+          </div>
         </div>
-        <a class="text-link" href="/events/">過去の集会をすべて見る →</a>
-      </div>
-      <EventCard event={latestEvent} compact={false} />
-    </section>
+        <div class="hero-actions">
+          <a class="button" href={`/events/${latestEvent.slug}/`}
+            >最新の集会を見る</a
+          >
+          <a class="button ghost" href="/events/">イベント一覧へ</a>
+        </div>
+      </section>
 
-    <section id="rules" class="card">
-      <Rules />
-    </section>
+      <section class="card">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Highlight</p>
+            <h2>最新の集会</h2>
+          </div>
+          <a class="text-link" href="/events/">過去の集会をすべて見る →</a>
+        </div>
+        <EventCard event={latestEvent} compact={false} />
+      </section>
 
-    <section class="card article-callout">
-      <div>
-        <p class="eyebrow">Blog</p>
-        <h2>記事</h2>
-        <p>集会の裏話やメモをゆるく掲載します。</p>
-        {
-          featuredArticle && (
-            <div class="article-highlight">
-              <p class="label">最新</p>
-              <a href={`/articles/${featuredArticle.slug}/`}>
-                {featuredArticle.title}
-              </a>
-            </div>
-          )
-        }
+      <section id="rules" class="card">
+        <Rules />
+      </section>
+
+      <section class="card article-callout">
+        <div>
+          <p class="eyebrow">Blog</p>
+          <h2>記事</h2>
+          <p>集会の裏話やメモをゆるく掲載します。</p>
+          {
+            featuredArticle && (
+              <div class="article-highlight">
+                <p class="label">最新</p>
+                <a href={`/articles/${featuredArticle.slug}/`}>
+                  {featuredArticle.title}
+                </a>
+              </div>
+            )
+          }
+        </div>
+        <a class="button ghost" href="/articles/">記事を読む</a>
+      </section>
+    </div>
+
+    <section>
+      <div class="bottom-hero-wrapper">
+        <div class="bottom-hero-image-wrapper">
+          <img
+            class="bottom-hero"
+            src="/images/hero-bottom.png"
+            alt="たくさんのシピルカくんが鏡のような湖の上にいるイラスト"
+            loading="lazy"
+          />
+        </div>
       </div>
-      <a class="button ghost" href="/articles/">記事を読む</a>
     </section>
   </main>
 
@@ -103,13 +123,13 @@ const navItems = [
 
     .hero h1 {
       margin: 0;
-      font-size: clamp(2rem, 5vw, 3rem);
+      font-size: clamp(2rem, 6vw, 5rem);
       color: var(--ink-10);
     }
 
     .hero p {
-      margin: 0;
-      font-size: clamp(1rem, 1.25vw, 1.5rem);
+      margin: 2rem 0;
+      font-size: clamp(1rem, 3vw, 2rem);
       color: var(--ink-10);
     }
 
@@ -173,6 +193,35 @@ const navItems = [
       background: rgba(12, 51, 136, 0.12);
       font-weight: 700;
       color: var(--ink);
+    }
+
+    .hero-image {
+      width: 100%;
+      mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+    }
+
+    .bottom-hero {
+      width: 100%;
+      mask-image: linear-gradient(
+        transparent 0%,
+        rgb(0 0 0 / 100%) 30% 70%,
+        transparent 100%
+      );
+    }
+
+    .bottom-hero-image-wrapper {
+      mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        black 15%,
+        black 85%,
+        transparent 100%
+      );
+    }
+
+    .bottom-hero-wrapper {
+      padding: 20em 0 5em 0;
+      background: linear-gradient(#1a4da0 0%, #5056aa 30%);
     }
 
     @media (max-width: 720px) {
