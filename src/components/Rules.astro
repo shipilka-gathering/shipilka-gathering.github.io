@@ -1,94 +1,125 @@
 ---
-const must = [
-  "シピルカくんのアバターを使用してください。",
-  "最低限、シピルカくんの顔（Body）を使用してください。",
-  "スタッフの指示があった場合は、それに従ってください。",
-  "混雑状況によっては、新規インスタンスに移動をお願いする場合があります。",
-];
 
-const can = [
-  "サンプルアバターで参加することができます。",
-  "サンプルアバターをお持ちでない場合は、スタッフにお声がけください。",
-  "インスタンス内では撮影することができます。",
-  "撮影した画像などはSNSや集会の告知などで使用することがあります。",
-];
-
-const mustNot = [
-  "以下に該当するアバターは使用してはいけません。",
-  "センシティブな内容が含まれるアバター",
-  "アバターの名誉を毀損する極端なキメラアバター",
-  "利用規約に違反するアバター",
-  "違法アップロードされたアバター",
-  "ハラスメント行為をしてはいけません。",
-  "スタッフの裁量で予告なくインスタンスから退場させていただくことがあります。",
-];
 ---
 
 <section class="rules">
-  <p class="eyebrow">行動規範（ルール）</p>
-  <h2>集会に参加する前に</h2>
+  <h2>集会に参加する前に……</h2>
   <div class="rule-grid">
-    <div class="rule-block">
-      <h3>義務事項（やること）</h3>
+    <div>
+      <h3>義務事項（しなければならないこと）</h3>
       <ul>
-        {must.map((rule) => <li>{rule}</li>)}
+        <li>シピルカくんのアバターを使用してください。</li>
+        <ul>
+          <li>最低限、シピルカくんの顔（Body）を使用してください。</li>
+        </ul>
+        <li>スタッフの指示があった場合は、それに従ってください。</li>
+        <ul>
+          <li>
+            混雑状況によっては、新規インスタンスに移動をお願いする場合があります。
+          </li>
+        </ul>
       </ul>
     </div>
-    <div class="rule-block">
+    <img
+      src="/images/shipilka-is-watching.png"
+      alt="シピルカくんが指を立てて注意を促しているイラスト"
+    />
+  </div>
+  <div class="rule-grid inverted">
+    <img
+      src="/images/shipilka-is-seeing.png"
+      alt="シピルカくんが指を立てて注意を促しているイラスト"
+    />
+    <div>
       <h3>できること</h3>
       <ul>
-        {can.map((rule) => <li>{rule}</li>)}
-      </ul>
-    </div>
-    <div class="rule-block">
-      <h3>禁止事項（やらないこと）</h3>
-      <ul>
-        {mustNot.map((rule) => <li>{rule}</li>)}
+        <li>サンプルアバターで参加することができます。</li>
+        <ul>
+          <li>
+            サンプルアバターをお持ちでない場合は、スタッフにお声がけください。
+          </li>
+        </ul>
+        <li>インスタンス内では撮影することができます。</li>
+        <ul>
+          <li>
+            撮影した画像などはSNSや集会の告知などで使用することがあります。
+          </li>
+        </ul>
       </ul>
     </div>
   </div>
+  <div class="rule-grid">
+    <div>
+      <h3>禁止事項（してはいけないこと）</h3>
+      <ul>
+        <li>以下に該当するアバターは使用してはいけません。</li>
+        <ul>
+          <li>センシティブな内容が含まれるアバター</li>
+          <li>アバターの名誉を毀損する極端なキメラアバター</li>
+          <li>利用規約に違反するアバター</li>
+          <li>違法アップロードされたアバター</li>
+        </ul>
+        <li>ハラスメント行為をしてはいけません。</li>
+      </ul>
+      スタッフの裁量で予告なくインスタンスから退場させていただくことがあります。
+    </div>
+    <img
+      src="/images/shipilka-turns-upside-down.png"
+      alt="シピルカくんが指を立てて注意を促しているイラスト"
+    />
+  </div>
+
+  <style>
+    .rules {
+      gap: 0.75rem;
+    }
+
+    .rule-grid {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .rule-grid.inverted {
+    }
+
+    .rule-grid img {
+      max-height: 512px;
+      justify-self: center;
+      border-radius: 0 3rem 3rem 0;
+      mask-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 1) 25%
+      );
+    }
+
+    .rule-grid.inverted img {
+      border-radius: 3rem 0 0 3rem;
+      mask-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 1) 75%,
+        rgba(0, 0, 0, 0) 100%
+      );
+    }
+
+    .rule-block {
+      padding: 1rem;
+      border-radius: 0.85rem;
+      background: rgba(12, 51, 136, 0.07);
+      border: 1px solid rgba(12, 51, 136, 0.12);
+      box-shadow: inset 0 0 0 0.5px rgba(255, 255, 255, 0.65);
+    }
+
+    ul {
+      padding-left: 1rem;
+      display: grid;
+    }
+
+    li {
+      margin: 0.5rem 0 0;
+      color: var(--ink-80);
+    }
+  </style>
 </section>
-
-<style>
-  .rules {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  h2 {
-    margin: 0;
-    font-size: 1.35rem;
-  }
-
-  h3 {
-    margin: 0 0 0.4rem;
-    font-size: 1.05rem;
-    color: var(--ink);
-  }
-
-  .rule-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1rem;
-  }
-
-  .rule-block {
-    padding: 1rem;
-    border-radius: 0.85rem;
-    background: rgba(12, 51, 136, 0.07);
-    border: 1px solid rgba(12, 51, 136, 0.12);
-    box-shadow: inset 0 0 0 0.5px rgba(255, 255, 255, 0.65);
-  }
-
-  ul {
-    margin: 0.5rem 0 0;
-    padding-left: 1.1rem;
-    display: grid;
-    gap: 0.35rem;
-  }
-
-  li {
-    color: var(--ink-80);
-  }
-</style>

@@ -111,7 +111,7 @@ const {
     padding: 1.5rem 1.5rem 3rem;
     display: flex;
     flex-direction: column;
-    gap: 2.5rem;
+    gap: 10rem;
   }
 
   .site-header {
@@ -210,13 +210,14 @@ const {
     align-items: center;
     justify-content: center;
     gap: 0.35rem;
-    padding: 0.75rem 1.1rem;
+    padding: 1.5rem 2.5rem;
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.6);
     background: linear-gradient(120deg, #f4c21f, #ffd773);
     color: #1b1b1b;
     text-decoration: none;
     font-weight: 700;
+    font-size: clamp(1rem, 3vw, 2rem);
     box-shadow: 0 10px 20px rgba(244, 194, 31, 0.3);
     transition:
       transform 0.15s ease,
@@ -228,8 +229,8 @@ const {
     box-shadow: 0 12px 30px rgba(244, 194, 31, 0.4);
   }
 
-  .button.ghost {
-    background: rgba(12, 51, 136, 0.08);
+  .button.normal {
+    background: rgba(255, 255, 255, 0.9);
     border: 1px solid rgba(12, 51, 136, 0.2);
     color: var(--ink);
     box-shadow: none;
@@ -239,14 +240,49 @@ const {
   h2,
   h3,
   h4 {
-    color: var(--ink);
     font-weight: 700;
     line-height: 1.3;
+  }
+
+  h1 {
+    font-size: 5rem;
+  }
+
+  h2 {
+    font-size: 4rem;
+  }
+
+  h3 {
+    font-size: 3rem;
+  }
+
+  h4 {
+    font-size: 2rem;
+  }
+
+  section.rules h2,
+  .rule-grid,
+  .rule-grid li {
+    color: var(--ink-10);
+  }
+
+  section.rules {
+    margin: auto 10%;
+  }
+
+  section.rules h2 {
+    text-align: center;
   }
 
   p {
     color: var(--ink-80);
     line-height: 1.7;
+  }
+
+  ul,
+  li {
+    color: var(--ink-10);
+    font-size: 1.5rem;
   }
 
   .site-footer {
