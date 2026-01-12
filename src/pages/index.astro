@@ -63,7 +63,7 @@ const navItems = [
       <section>
         <div class="hero-actions">
           <a class="button" href={`/events/${latestEvent.slug}/`}>
-            最新の集会を見る
+            最新のイベントを確認する
           </a>
           <a class="button normal" href="https://vrc.group/SIPILK.2143">
             グループに参加する↗
@@ -83,23 +83,17 @@ const navItems = [
 
       <Rules />
 
-      <section class="card article-callout">
-        <div>
-          <p class="eyebrow">Blog</p>
-          <h2>記事</h2>
-          <p>集会の裏話やメモをゆるく掲載します。</p>
-          {
-            featuredArticle && (
-              <div class="article-highlight">
-                <p class="label">最新</p>
-                <a href={`/articles/${featuredArticle.slug}/`}>
-                  {featuredArticle.title}
-                </a>
-              </div>
-            )
-          }
+      <section class="raw-section">
+        <h2>スクロールはここまで！<br />シピルカくん集会に参加しよう</h2>
+
+        <div class="hero-actions">
+          <a class="button" href={`/events/${latestEvent.slug}/`}>
+            最新のイベントを確認する
+          </a>
+          <a class="button normal" href="https://vrc.group/SIPILK.2143">
+            グループに参加する↗
+          </a>
         </div>
-        <a class="button ghost" href="/articles/">記事を読む</a>
       </section>
     </div>
 
@@ -137,6 +131,12 @@ const navItems = [
       color: var(--ink-10);
     }
 
+    section.raw-section {
+      text-align: center;
+      justify-self: center;
+      color: var(--ink-10);
+    }
+
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
@@ -166,13 +166,6 @@ const navItems = [
 
     .text-link:hover {
       text-decoration: underline;
-    }
-
-    .article-callout {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
     }
 
     .article-highlight {
