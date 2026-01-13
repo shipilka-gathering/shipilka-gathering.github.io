@@ -29,7 +29,6 @@ const formattedDate = date.toLocaleString("ja-JP", {
   description={event.description}
 >
   <article class="card event-detail">
-    <p class="eyebrow">Event</p>
     <h1>{event.title}</h1>
     <dl>
       <div>
@@ -65,7 +64,6 @@ const formattedDate = date.toLocaleString("ja-JP", {
     {
       event.xPost && (
         <div class="embed">
-          <p class="eyebrow">告知ポスト</p>
           <a href={event.xPost} target="_blank" rel="noreferrer">
             {event.xPost}
           </a>

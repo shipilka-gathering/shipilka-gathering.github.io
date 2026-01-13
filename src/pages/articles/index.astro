@@ -13,7 +13,6 @@ const sortedArticles = [...articles].sort(
   description="シピルカくん集会のブログ記事一覧です。"
 >
   <section class="card">
-    <p class="eyebrow">Blog</p>
     <h1>記事一覧</h1>
     <div class="article-list">
       {sortedArticles.map((article) => <ArticleCard article={article} />)}
