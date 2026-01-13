@@ -7,9 +7,9 @@ export type Article = {
 
 export const articles: Article[] = [
 	{
-		slug: 'hello-world',
-		title: 'Hello World',
+		slug: 'hello',
+		title: 'シピルカくん集会のサイトを開設',
 		date: '2026-01-04T12:38:37+09:00',
-		body: ['OK', 'This is my first article.', 'Welcome to my blog!'],
+		body: ['シピルカくん集会のサイトを作成しました。', 'よろしくお願いします！'],
 	},
 ];
