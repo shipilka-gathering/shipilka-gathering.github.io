@@ -1,20 +1,25 @@
 ---
-
+const { tone = "light" } = Astro.props;
+const isLight = tone === "light";
+const headingClass = `m-0 font-bold leading-[1.3] ${isLight ? "text-[4rem] text-[#f2f5ff] text-center" : "text-[3rem] text-[#0b1d3f]"}`;
+const subheadingClass = `m-0 font-bold leading-[1.3] ${isLight ? "text-[3rem] text-[#f2f5ff]" : "text-[2rem] text-[#0b1d3f]"}`;
+const listItemClass = `mt-2 ${isLight ? "text-[1.5rem] text-[#f2f5ff]" : "text-base text-[rgba(11,29,63,0.8)]"}`;
+const bodyTextClass = `${isLight ? "text-[#f2f5ff]" : "text-[rgba(11,29,63,0.8)]"}`;
 ---
 
-<section class="rules">
-  <h2>集会に参加する前に……</h2>
-  <div class="rule-grid">
-    <div>
-      <h3>義務事項（しなければならないこと）</h3>
-      <ul>
-        <li>シピルカくんのアバターを使用してください。</li>
-        <ul>
-          <li>最低限、シピルカくんの顔（Body）を使用してください。</li>
+<section class={isLight ? "mx-[10%] my-auto" : ""}>
+  <h2 class={headingClass}>集会に参加する前に……</h2>
+  <div class={`flex items-center justify-center gap-8 ${isLight ? "text-[#f2f5ff]" : "text-[#0b1d3f]"}`}>
+    <div class={bodyTextClass}>
+      <h3 class={subheadingClass}>義務事項（しなければならないこと）</h3>
+      <ul class="grid pl-4">
+        <li class={listItemClass}>シピルカくんのアバターを使用してください。</li>
+        <ul class="grid pl-4">
+          <li class={listItemClass}>最低限、シピルカくんの顔（Body）を使用してください。</li>
         </ul>
-        <li>スタッフの指示があった場合は、それに従ってください。</li>
-        <ul>
-          <li>
+        <li class={listItemClass}>スタッフの指示があった場合は、それに従ってください。</li>
+        <ul class="grid pl-4">
+          <li class={listItemClass}>
             混雑状況によっては、新規インスタンスに移動をお願いする場合があります。
           </li>
         </ul>
@@ -23,103 +28,53 @@
     <img
       src="/images/shipilka-is-watching.png"
       alt="シピルカくんが指を立てて注意を促しているイラスト"
+      class="max-h-[512px] justify-self-center rounded-r-[3rem] [mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_25%)]"
     />
   </div>
-  <div class="rule-grid inverted">
+  <div class={`flex items-center justify-center gap-8 ${isLight ? "text-[#f2f5ff]" : "text-[#0b1d3f]"}`}>
     <img
       src="/images/shipilka-is-seeing.png"
       alt="シピルカくんが指を立てて注意を促しているイラスト"
+      class="max-h-[512px] justify-self-center rounded-l-[3rem] [mask-image:linear-gradient(to_right,rgba(0,0,0,1)_75%,rgba(0,0,0,0)_100%)]"
     />
     <div>
-      <h3>できること</h3>
-      <ul>
-        <li>サンプルアバターで参加することができます。</li>
-        <ul>
-          <li>
+      <h3 class={subheadingClass}>できること</h3>
+      <ul class="grid pl-4">
+        <li class={listItemClass}>サンプルアバターで参加することができます。</li>
+        <ul class="grid pl-4">
+          <li class={listItemClass}>
             サンプルアバターをお持ちでない場合は、スタッフにお声がけください。
           </li>
         </ul>
-        <li>インスタンス内では撮影することができます。</li>
-        <ul>
-          <li>
+        <li class={listItemClass}>インスタンス内では撮影することができます。</li>
+        <ul class="grid pl-4">
+          <li class={listItemClass}>
             撮影した画像などはSNSや集会の告知などで使用することがあります。
           </li>
         </ul>
       </ul>
     </div>
   </div>
-  <div class="rule-grid">
+  <div class={`flex items-center justify-center gap-8 ${isLight ? "text-[#f2f5ff]" : "text-[#0b1d3f]"}`}>
     <div>
-      <h3>禁止事項（してはいけないこと）</h3>
-      <ul>
-        <li>以下に該当するアバターは使用してはいけません。</li>
-        <ul>
-          <li>センシティブな内容が含まれるアバター</li>
-          <li>アバターの名誉を毀損する極端なキメラアバター</li>
-          <li>利用規約に違反するアバター</li>
-          <li>違法アップロードされたアバター</li>
+      <h3 class={subheadingClass}>禁止事項（してはいけないこと）</h3>
+      <ul class="grid pl-4">
+        <li class={listItemClass}>以下に該当するアバターは使用してはいけません。</li>
+        <ul class="grid pl-4">
+          <li class={listItemClass}>センシティブな内容が含まれるアバター</li>
+          <li class={listItemClass}>アバターの名誉を毀損する極端なキメラアバター</li>
+          <li class={listItemClass}>利用規約に違反するアバター</li>
+          <li class={listItemClass}>違法アップロードされたアバター</li>
         </ul>
-        <li>ハラスメント行為をしてはいけません。</li>
+        <li class={listItemClass}>ハラスメント行為をしてはいけません。</li>
       </ul>
       スタッフの裁量で予告なくインスタンスから退場させていただくことがあります。
     </div>
     <img
       src="/images/shipilka-turns-upside-down.png"
       alt="シピルカくんが指を立てて注意を促しているイラスト"
+      class="max-h-[512px] justify-self-center rounded-r-[3rem] [mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_25%)]"
     />
   </div>
 
-  <style>
-    .rules {
-      gap: 0.75rem;
-    }
-
-    .rule-grid {
-      display: flex;
-      gap: 2rem;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .rule-grid.inverted {
-    }
-
-    .rule-grid img {
-      max-height: 512px;
-      justify-self: center;
-      border-radius: 0 3rem 3rem 0;
-      mask-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0) 0%,
-        rgba(0, 0, 0, 1) 25%
-      );
-    }
-
-    .rule-grid.inverted img {
-      border-radius: 3rem 0 0 3rem;
-      mask-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 1) 75%,
-        rgba(0, 0, 0, 0) 100%
-      );
-    }
-
-    .rule-block {
-      padding: 1rem;
-      border-radius: 0.85rem;
-      background: rgba(12, 51, 136, 0.07);
-      border: 1px solid rgba(12, 51, 136, 0.12);
-      box-shadow: inset 0 0 0 0.5px rgba(255, 255, 255, 0.65);
-    }
-
-    ul {
-      padding-left: 1rem;
-      display: grid;
-    }
-
-    li {
-      margin: 0.5rem 0 0;
-      color: var(--ink-80);
-    }
-  </style>
 </section>

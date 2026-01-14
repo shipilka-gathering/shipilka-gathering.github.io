@@ -28,20 +28,25 @@ const formattedDate = date.toLocaleString("ja-JP", {
   title={`${event.title} | シピルカくん集会`}
   description={event.description}
 >
-  <article class="card event-detail">
-    <h1>{event.title}</h1>
-    <dl>
+  <article
+    class="rounded-[20px] border border-[rgba(255,255,255,0.3)] bg-[rgba(255,255,255,0.9)] p-6 shadow-[0_18px_42px_rgba(0,26,77,0.14),inset_0_0_0_0.5px_rgba(12,51,136,0.15)] max-[720px]:p-5"
+  >
+    <h1 class="mt-[0.35rem] mb-0 text-[4rem] font-bold leading-[1.3] text-[#0b1d3f]">
+      {event.title}</h1>
+    <dl class="my-4 grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-y-[0.6rem] gap-x-4">
       <div>
-        <dt>開催日時</dt>
-        <dd>{formattedDate}</dd>
+        <dt class="font-bold text-[#34558f]">開催日時</dt>
+        <dd class="mt-[0.1rem] mb-0">{formattedDate}</dd>
       </div>
       {
         event.tags && (
           <div>
-            <dt>タグ</dt>
-            <dd class="tags">
+            <dt class="font-bold text-[#34558f]">タグ</dt>
+            <dd class="mt-[0.1rem] mb-0 flex flex-wrap gap-[0.4rem]">
               {event.tags.map((tag) => (
-                <span class="pill">{tag}</span>
+                <span class="inline-flex items-center gap-[0.35rem] rounded-full bg-[rgba(12,51,136,0.12)] px-[0.7rem] py-[0.25rem] text-[0.9rem] font-semibold text-[#0b1d3f]">
+                  {tag}
+                </span>
               ))}
             </dd>
           </div>
@@ -49,13 +54,17 @@ const formattedDate = date.toLocaleString("ja-JP", {
       }
     </dl>
 
-    {event.description && <p class="lead">{event.description}</p>}
+    {event.description && (
+      <p class="mt-2 mb-[1.2rem] font-semibold leading-[1.7] text-[rgba(11,29,63,0.8)]">
+        {event.description}
+      </p>
+    )}
 
     {
       event.content && (
-        <div class="rich">
+        <div class="grid gap-[0.8rem]">
           {event.content.map((paragraph) => (
-            <p>{paragraph}</p>
+            <p class="m-0 leading-[1.7] text-[rgba(11,29,63,0.8)]">{paragraph}</p>
           ))}
         </div>
       )
@@ -63,71 +72,21 @@ const formattedDate = date.toLocaleString("ja-JP", {
 
     {
       event.xPost && (
-        <div class="embed">
-          <a href={event.xPost} target="_blank" rel="noreferrer">
+        <div class="mt-[1.2rem] rounded-[0.85rem] border border-[rgba(12,51,136,0.12)] bg-[rgba(12,51,136,0.07)] p-4">
+          <a
+            class="break-all font-bold text-[#0b1d3f] no-underline hover:underline"
+            href={event.xPost}
+            target="_blank"
+            rel="noreferrer"
+          >
             {event.xPost}
           </a>
         </div>
       )
     }
 
-    <div class="rules-block">
-      <Rules />
+    <div class="mt-6">
+      <Rules tone="dark" />
     </div>
   </article>
 </Layout>
-
-<style>
-  h1 {
-    margin: 0.35rem 0;
-  }
-
-  dl {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 0.6rem 1rem;
-    margin: 1rem 0;
-  }
-
-  dt {
-    font-weight: 700;
-    color: var(--muted);
-  }
-
-  dd {
-    margin: 0.1rem 0 0;
-  }
-
-  .lead {
-    margin: 0.5rem 0 1.2rem;
-    font-weight: 600;
-  }
-
-  .rich {
-    display: grid;
-    gap: 0.8rem;
-  }
-
-  .embed {
-    margin-top: 1.2rem;
-    padding: 1rem;
-    border-radius: 0.85rem;
-    background: rgba(12, 51, 136, 0.07);
-    border: 1px solid rgba(12, 51, 136, 0.12);
-  }
-
-  .embed a {
-    color: var(--ink);
-    text-decoration: none;
-    font-weight: 700;
-    word-break: break-all;
-  }
-
-  .embed a:hover {
-    text-decoration: underline;
-  }
-
-  .rules-block {
-    margin-top: 1.5rem;
-  }
-</style>
