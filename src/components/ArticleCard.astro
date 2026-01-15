@@ -1,26 +1,51 @@
 ---
-import type { Article } from "../data/articles";
+import type { MarkdownInstance } from "astro";
 import H3 from "./H3.astro";
 
-const { article } = Astro.props as { article: Article };
-const date = new Date(article.date).toLocaleDateString("ja-JP", {
-  year: "numeric",
-  month: "short",
-  day: "numeric",
-});
-const preview = article.body[1] ?? article.body[0];
+const { article } = Astro.props as {
+  article: MarkdownInstance<Record<string, unknown>>;
+};
+const title =
+  typeof article.frontmatter?.title === "string"
+    ? article.frontmatter.title
+    : getSlugFromFile(article.file);
+const date =
+  typeof article.frontmatter?.date === "string"
+    ? new Date(article.frontmatter.date).toLocaleDateString("ja-JP", {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      })
+    : null;
+const preview =
+  typeof article.frontmatter?.description === "string"
+    ? article.frontmatter.description
+    : getPreviewFromRaw(article.rawContent());
+
+function getPreviewFromRaw(raw: string) {
+  const lines = raw.split(/\r?\n/).map((line) => line.trim());
+  const text = lines.find((line) => line && !line.startsWith("#"));
+  return text ?? "";
+}
+
+function getSlugFromFile(file: string) {
+  const name = file.split(/[\\/]/).pop() ?? file;
+  return name.replace(/\.md$/, "");
+}
 ---
 
 <article
-  class="rounded-[1rem] border border-[rgba(255,255,255,0.3)] bg-[rgba(255,255,255,0.9)] px-[1.3rem] py-[1.2rem] shadow-[0_12px_32px_rgba(0,26,77,0.12)]"
+    class="rounded-[1rem] border border-[rgba(255,255,255,0.3)] bg-[rgba(255,255,255,0.9)] px-[1.3rem] py-[1.2rem] shadow-[0_12px_32px_rgba(0,26,77,0.12)]"
 >
   <div class="flex items-baseline gap-[0.65rem]">
-    <p class="m-0 font-bold text-[#34558f]">{date}</p>
+    {date && <p class="m-0 font-bold text-[#34558f]">{date}</p>}
   </div>
   <H3 class="mt-[0.2rem] mb-[0.4rem] text-[2rem] font-bold leading-[1.3] text-[#0b1d3f]">
-    <a class="text-[inherit] no-underline hover:underline" href={`/articles/${article.slug}/`}>
-      {article.title}
+    <a class="text-[inherit] no-underline hover:underline" href={`/articles/${getSlugFromFile(article.file)}/`}>
+      {title}
     </a>
   </H3>
-  <p class="m-0 leading-[1.7] text-[rgba(11,29,63,0.8)]">{preview}</p>
+  {preview && (
+    <p class="m-0 leading-[1.7] text-[rgba(11,29,63,0.8)]">{preview}</p>
+  )}
 </article>

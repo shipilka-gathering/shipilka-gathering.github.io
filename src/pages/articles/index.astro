@@ -1,12 +1,25 @@
 ---
+import type { MarkdownInstance } from "astro";
 import Layout from "../../layouts/Layout.astro";
 import ArticleCard from "../../components/ArticleCard.astro";
 import H1 from "../../components/H1.astro";
-import { articles } from "../../data/articles";
 
+const modules = import.meta.glob("../../contents/articles/*.md", {
+  eager: true,
+});
+const articles = Object.values(
+  modules
+) as MarkdownInstance<Record<string, unknown>>[];
 const sortedArticles = [...articles].sort(
-  (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  (a, b) => getSortDate(b) - getSortDate(a)
 );
+
+function getSortDate(article: {
+  frontmatter?: { date?: unknown };
+}) {
+  const value = article.frontmatter?.date;
+  return typeof value === "string" ? new Date(value).getTime() : 0;
+}
 ---
 
 <Layout

@@ -5,14 +5,12 @@ import H2 from "../components/H2.astro";
 import Rules from "../components/Rules.astro";
 import EventCard from "../components/EventCard.astro";
 import { events } from "../data/events";
-import { articles } from "../data/articles";
 import HomeLayout from "../layouts/HomeLayout.astro";
 
 const sortedEvents = [...events].sort(
   (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
 );
 const latestEvent = sortedEvents[0];
-const featuredArticle = articles[0];
 const navItems = [
   { href: "https://vrc.group/SIPILK.2143", label: "VRChatグループ ↗" },
   { href: "https://x.com/Shipilka_club", label: "Twitter ↗" },
