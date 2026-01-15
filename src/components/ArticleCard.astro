@@ -1,5 +1,6 @@
 ---
 import type { Article } from "../data/articles";
+import H3 from "./H3.astro";
 
 const { article } = Astro.props as { article: Article };
 const date = new Date(article.date).toLocaleDateString("ja-JP", {
@@ -16,10 +17,10 @@ const preview = article.body[1] ?? article.body[0];
   <div class="flex items-baseline gap-[0.65rem]">
     <p class="m-0 font-bold text-[#34558f]">{date}</p>
   </div>
-  <h3 class="mt-[0.2rem] mb-[0.4rem] text-[2rem] font-bold leading-[1.3] text-[#0b1d3f]">
+  <H3 class="mt-[0.2rem] mb-[0.4rem] text-[2rem] font-bold leading-[1.3] text-[#0b1d3f]">
     <a class="text-[inherit] no-underline hover:underline" href={`/articles/${article.slug}/`}>
       {article.title}
     </a>
-  </h3>
+  </H3>
   <p class="m-0 leading-[1.7] text-[rgba(11,29,63,0.8)]">{preview}</p>
 </article>

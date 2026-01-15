@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import H1 from "../../components/H1.astro";
 import { articles, type Article } from "../../data/articles";
 
 export function getStaticPaths() {
@@ -19,15 +20,16 @@ const date = new Date(article.date).toLocaleDateString("ja-JP", {
 
 <Layout title={`${article.title} | シピルカくん集会`}>
   <article
-    class="rounded-[20px] border border-[rgba(255,255,255,0.3)] bg-[rgba(255,255,255,0.9)] p-6 shadow-[0_18px_42px_rgba(0,26,77,0.14),inset_0_0_0_0.5px_rgba(12,51,136,0.15)] max-[720px]:p-5"
+    class="text-slate-900 rounded-[20px] border border-[rgba(255,255,255,0.3)] bg-[rgba(255,255,255,0.9)] p-6 shadow-[0_18px_42px_rgba(0,26,77,0.14),inset_0_0_0_0.5px_rgba(12,51,136,0.15)] max-[720px]:p-5"
   >
-    <h1 class="mt-1 mb-[0.3rem] text-[4rem] font-bold leading-[1.3] text-[#0b1d3f]">
-      {article.title}</h1>
+    <H1>{article.title}</H1>
     <p class="mt-0 mb-4 font-bold text-[#34558f]">{date}</p>
     <div class="grid gap-3">
-      {article.body.map((paragraph) => (
-        <p class="m-0 leading-[1.7] text-[rgba(11,29,63,0.8)]">{paragraph}</p>
-      ))}
+      {
+        article.body.map((paragraph) => (
+          <p class="m-0 leading-[1.7] text-[rgba(11,29,63,0.8)]">{paragraph}</p>
+        ))
+      }
     </div>
   </article>
 </Layout>

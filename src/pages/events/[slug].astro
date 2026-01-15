@@ -1,6 +1,8 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Rules from "../../components/Rules.astro";
+import H1 from "../../components/H1.astro";
+import H2 from "../../components/H2.astro";
 import { events, type Event } from "../../data/events";
 
 export function getStaticPaths() {
@@ -29,15 +31,12 @@ const formattedDate = date.toLocaleString("ja-JP", {
   description={event.description}
 >
   <article
-    class="rounded-[20px] border border-[rgba(255,255,255,0.3)] bg-[rgba(255,255,255,0.9)] p-6 shadow-[0_18px_42px_rgba(0,26,77,0.14),inset_0_0_0_0.5px_rgba(12,51,136,0.15)] max-[720px]:p-5"
+    class="text-slate-900 rounded-[20px] border border-[rgba(255,255,255,0.3)] bg-[rgba(255,255,255,0.9)] p-6 shadow-[0_18px_42px_rgba(0,26,77,0.14),inset_0_0_0_0.5px_rgba(12,51,136,0.15)] max-[720px]:p-5"
   >
-    <h1 class="mt-[0.35rem] mb-0 text-[4rem] font-bold leading-[1.3] text-[#0b1d3f]">
-      {event.title}</h1>
-    <dl class="my-4 grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-y-[0.6rem] gap-x-4">
-      <div>
-        <dt class="font-bold text-[#34558f]">開催日時</dt>
-        <dd class="mt-[0.1rem] mb-0">{formattedDate}</dd>
-      </div>
+    <H1>{event.title}</H1>
+    <dl
+      class="my-4 grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-y-[0.6rem] gap-x-4"
+    >
       {
         event.tags && (
           <div>
@@ -54,17 +53,34 @@ const formattedDate = date.toLocaleString("ja-JP", {
       }
     </dl>
 
-    {event.description && (
-      <p class="mt-2 mb-[1.2rem] font-semibold leading-[1.7] text-[rgba(11,29,63,0.8)]">
-        {event.description}
+    <section>
+      <H2>開催日時</H2>
+      <p class="text-2xl xl:text-4xl">
+        {formattedDate}
       </p>
-    )}
+    </section>
+
+    <section>
+      <H2>告知ツイート</H2>
+      <p>
+      </p>
+    </section>
+
+    {
+      event.description && (
+        <p class="mt-2 mb-[1.2rem] font-semibold leading-[1.7] text-[rgba(11,29,63,0.8)]">
+          {event.description}
+        </p>
+      )
+    }
 
     {
       event.content && (
         <div class="grid gap-[0.8rem]">
           {event.content.map((paragraph) => (
-            <p class="m-0 leading-[1.7] text-[rgba(11,29,63,0.8)]">{paragraph}</p>
+            <p class="m-0 leading-[1.7] text-[rgba(11,29,63,0.8)]">
+              {paragraph}
+            </p>
           ))}
         </div>
       )

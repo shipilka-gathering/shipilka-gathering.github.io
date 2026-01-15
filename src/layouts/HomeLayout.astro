@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import Footer from "../components/Footer.astro";
 const {
   title = "シピルカくん集会",
   description = "Shipilka Gathering のお知らせサイト",
@@ -33,67 +34,6 @@ const {
 
     <slot />
 
-    <footer
-      class="bg-[linear-gradient(#5056aa_0%,#1a4da0_75%)] text-center text-[#f2f5ff] leading-[3]"
-    >
-      <div class="flex justify-center gap-8 p-[2.5%]">
-        <div>
-          <h2 class="m-0 text-[1.5rem] font-bold leading-[2] text-[#f2f5ff]">
-            シピルカくん集会
-          </h2>
-        </div>
-        <div>
-          <h2 class="m-0 text-[1.5rem] font-bold leading-[2] text-[#f2f5ff]">
-            言語
-          </h2>
-          <div>日本語</div>
-        </div>
-        <div>
-          <h2 class="m-0 text-[1.5rem] font-bold leading-[2] text-[#f2f5ff]">
-            ソーシャルメディア
-          </h2>
-          <div>
-            <a
-              class="text-[inherit] no-underline"
-              href="https://vrc.group/SIPILK.2143">VRChatグループ ↗</a
-            >
-          </div>
-          <div>
-            <a
-              class="text-[inherit] no-underline"
-              href="https://x.com/Shipilka_club">Twitter ↗</a
-            >
-          </div>
-          <div>
-            <a
-              class="text-[inherit] no-underline"
-              href="https://discord.com/invite/MzXx8RjCuw">Discord ↗</a
-            >
-          </div>
-        </div>
-        <div>
-          <h2 class="m-0 text-[1.5rem] font-bold leading-[2] text-[#f2f5ff]">
-            サイト
-          </h2>
-          <div>
-            <a class="text-[inherit] no-underline" href="/events/"
-              >イベント一覧</a
-            >
-          </div>
-          <div>
-            <a class="text-[inherit] no-underline" href="/articles/">記事一覧</a
-            >
-          </div>
-        </div>
-      </div>
-      <div class="mt-[10em] flex w-full justify-center p-[2.5%]">
-        <img
-          class="h-[80%] w-full"
-          src="/images/logo.svg"
-          alt="シピルカくん集会のロゴ"
-          loading="lazy"
-        />
-      </div>
-    </footer>
+    <Footer />
   </body>
 </html>
