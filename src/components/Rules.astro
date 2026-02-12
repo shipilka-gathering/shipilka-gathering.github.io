@@ -8,7 +8,7 @@ const listItemClass = `list-disc mt-2 ${isLight ? "text-[#f2f5ff]" : "text-[rgba
 const bodyTextClass = `${isLight ? "text-[#f2f5ff]" : "text-[rgba(11,29,63,0.8)]"}`;
 ---
 
-<section class={isLight ? "mx-[10%] my-auto" : ""}>
+<section class=`flex flex-col gap-4 ${isLight ? "mx-[10%] my-auto" : ""}`>
   <H2><span class=`${isLight ? "text-[#f2f5ff]" : "text-[#0b1d3f]"}`>集会に参加する前に……</span></H2>
   <div class={`flex items-center justify-center gap-8 ${isLight ? "text-[#f2f5ff]" : "text-[#0b1d3f]"}`}>
     <div class={bodyTextClass}>
