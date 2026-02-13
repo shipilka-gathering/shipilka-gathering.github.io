@@ -4,15 +4,17 @@ import H3 from "./H3.astro";
 
 const { tone = "light" } = Astro.props;
 const isLight = tone === "light";
-const listItemClass = `list-disc mt-2 xl:text-xl ${isLight ? "text-[#f2f5ff]" : "text-[rgba(11,29,63,0.8)]"}`;
-const bodyTextClass = `xl:text-xl ${isLight ? "text-[#f2f5ff]" : "text-[rgba(11,29,63,0.8)]"}`;
+const listItemClass = `list-disc mt-2 ${isLight ? "text-[#f2f5ff]" : "text-[rgba(11,29,63,0.8)]"}`;
+const bodyTextClass = `${isLight ? "text-[#f2f5ff]" : "text-[rgba(11,29,63,0.8)]"}`;
 ---
 
-<section class={isLight ? "mx-[10%] my-auto" : ""}>
-  <H2><span class=`${isLight ? "text-[#f2f5ff]" : "text-[#0b1d3f]"}`>集会に参加する前に……</span></H2>
+<section class=`flex flex-col gap-4 ${isLight ? "mx-[10%] my-auto" : ""}`>
+  <div class="text-center">
+    <H2 class="text-center"><span class=`${isLight ? "text-[#f2f5ff]" : "text-[#0b1d3f]"}`>集会に参加する前に……</span></H2>
+  </div>
   <div class={`flex items-center justify-center gap-8 ${isLight ? "text-[#f2f5ff]" : "text-[#0b1d3f]"}`}>
     <div class={bodyTextClass}>
-      <H3>義務事項（しなければならないこと）</H3>
+    <H3>義務事項（しなければならないこと）</H3>
       <ul class="grid pl-4">
         <li class={listItemClass}>シピルカくんのアバターを使用してください。</li>
         <ul class="grid pl-4">
