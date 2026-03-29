@@ -1,24 +1,57 @@
-export type Event = {
-	slug: string;
-	title: string;
-	date: string;
-	tags?: string[];
-	tweet?: string;
+import { getCollection, type CollectionEntry } from "astro:content";
+
+import { defaultLocale, localeCodes, type LocaleCode } from "../i18n/config";
+
+export type EventEntry = CollectionEntry<"events">;
+
+export type LocalizedEvent = {
+  id: string;
+  slug: string;
+  date: string;
+  tweet?: string;
+  title: string;
+  tags: string[];
+  locale: LocaleCode;
+  availableLocales: LocaleCode[];
 };
 
-export const events: Event[] = [
-	{
-		slug: '2026-01-18',
-		title: '第9回シピルカくん集会',
-		date: '2026-01-18T21:30:00+09:00',
-		tweet: '2007825201376182374',
-		tags: ['VRChat', 'シピルカくん集会'],
-	},
-	{
-		slug: '2025-07-27',
-		title: '第8回シピルカくん集会',
-		date: '2025-07-27T21:30:00+09:00',
-		tweet: '1947815239791325220',
-		tags: ['VRChat', 'シピルカくん集会'],
-	},
-];
+function sortByDateDescending<T extends { data: { date: string } }>(entries: T[]) {
+  return [...entries].sort(
+    (a, b) =>
+      new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
+  );
+}
+
+export async function getEventEntries() {
+  return sortByDateDescending(await getCollection("events"));
+}
+
+export function localizeEvent(entry: EventEntry, locale: LocaleCode): LocalizedEvent {
+  const fallback = entry.data.translations[defaultLocale];
+  const translation = entry.data.translations[locale] ?? {};
+
+  return {
+    id: entry.data.id,
+    slug: entry.data.slug,
+    date: entry.data.date,
+    tweet: entry.data.tweet,
+    title: translation.title ?? fallback.title,
+    tags: translation.tags ?? fallback.tags ?? [],
+    locale,
+    availableLocales: [...localeCodes],
+  };
+}
+
+export async function getLocalizedEvents(locale: LocaleCode) {
+  const entries = await getEventEntries();
+  return entries.map((entry) => localizeEvent(entry, locale));
+}
+
+export async function getLocalizedEventBySlug(
+  locale: LocaleCode,
+  slug: string,
+) {
+  const entries = await getEventEntries();
+  const entry = entries.find((event) => event.data.slug === slug);
+  return entry ? localizeEvent(entry, locale) : null;
+}

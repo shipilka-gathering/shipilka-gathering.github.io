@@ -1,56 +1,83 @@
-<footer class="text-center text-[#f2f5ff] leading-[3]">
-  <div class="flex flex-col md:flex-row justify-center gap-8 p-[2.5%]">
+---
+import LanguageButton from "./LanguageButton.astro";
+
+import { externalLinks } from "../config/site";
+import type { LocaleCode } from "../i18n/config";
+import type { Messages } from "../i18n/messages";
+import {
+  getArticlesIndexPath,
+  getEventsIndexPath,
+  getLocaleRoot,
+} from "../i18n/routing";
+
+const {
+  locale,
+  languagePageHref,
+  messages,
+} = Astro.props as {
+  locale: LocaleCode;
+  languagePageHref: string;
+  messages: Messages;
+};
+
+const siteLinks = [
+  { href: getEventsIndexPath(locale), label: messages.footer.eventsLink },
+  { href: getArticlesIndexPath(locale), label: messages.footer.articlesLink },
+];
+
+const socialLinks = [
+  { href: externalLinks.vrchatGroup, label: messages.nav.vrchatGroup },
+  { href: externalLinks.twitter, label: messages.nav.twitter },
+  { href: externalLinks.discord, label: messages.nav.discord },
+];
+---
+
+<footer class="text-center text-[#f2f5ff]">
+  <div class="flex flex-col justify-center gap-8 px-6 py-10 md:flex-row md:px-12">
     <div>
       <h2 class="m-0 text-[1.5rem] font-bold leading-[2] text-[#f2f5ff]">
-        シピルカくん集会
+        <a class="text-[inherit] no-underline" href={getLocaleRoot(locale)}>
+          {messages.site.name}
+        </a>
       </h2>
     </div>
     <div>
-      <h2 class="m-0 text-[1.5rem] font-bold leading-[2] text-[#f2f5ff]">
-        言語
-      </h2>
-      <div>日本語</div>
+      <LanguageButton href={languagePageHref} />
     </div>
     <div>
       <h2 class="m-0 text-[1.5rem] font-bold leading-[2] text-[#f2f5ff]">
-        ソーシャルメディア
+        {messages.footer.socialTitle}
       </h2>
-      <div>
-        <a
-          class="text-[inherit] no-underline"
-          href="https://vrc.group/SIPILK.2143">VRChatグループ ↗</a
-        >
-      </div>
-      <div>
-        <a
-          class="text-[inherit] no-underline"
-          href="https://x.com/Shipilka_club">Twitter ↗</a
-        >
-      </div>
-      <div>
-        <a
-          class="text-[inherit] no-underline"
-          href="https://discord.com/invite/MzXx8RjCuw">Discord ↗</a
-        >
+      <div class="flex flex-col gap-1">
+        {
+          socialLinks.map((link) => (
+            <a class="text-[inherit] no-underline hover:underline" href={link.href}>
+              {link.label}
+            </a>
+          ))
+        }
       </div>
     </div>
     <div>
       <h2 class="m-0 text-[1.5rem] font-bold leading-[2] text-[#f2f5ff]">
-        サイト
+        {messages.footer.siteTitle}
       </h2>
-      <div>
-        <a class="text-[inherit] no-underline" href="/events/">イベント一覧</a>
-      </div>
-      <div>
-        <a class="text-[inherit] no-underline" href="/articles/">記事一覧</a>
+      <div class="flex flex-col gap-1">
+        {
+          siteLinks.map((link) => (
+            <a class="text-[inherit] no-underline hover:underline" href={link.href}>
+              {link.label}
+            </a>
+          ))
+        }
       </div>
     </div>
   </div>
-  <div class="mt-[10em] flex w-full justify-center p-[2.5%]">
+  <div class="mt-[6em] flex w-full justify-center px-[2.5%] pb-[2.5%]">
     <img
       class="h-[80%] w-full"
       src="/images/logo.svg"
-      alt="シピルカくん集会のロゴ"
+      alt={messages.site.logoAlt}
       loading="lazy"
     />
   </div>

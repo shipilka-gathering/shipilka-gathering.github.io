@@ -2,82 +2,85 @@
 import H2 from "./H2.astro";
 import H3 from "./H3.astro";
 
-const { tone = "light" } = Astro.props;
+import type { Messages } from "../i18n/messages";
+
+const { tone = "light", messages } = Astro.props as {
+  tone?: "light" | "dark";
+  messages: Messages;
+};
+
 const isLight = tone === "light";
-const listItemClass = `list-disc mt-2 ${isLight ? "text-[#f2f5ff]" : "text-[rgba(11,29,63,0.8)]"}`;
-const bodyTextClass = `${isLight ? "text-[#f2f5ff]" : "text-[rgba(11,29,63,0.8)]"}`;
+const textClass = isLight ? "text-[#f2f5ff]" : "text-[rgba(11,29,63,0.8)]";
+const headingClass = isLight ? "text-[#f2f5ff]" : "text-[#0b1d3f]";
+const sectionMedia = [
+  {
+    src: "/images/shipilka-is-watching.png",
+    imageFirst: false,
+    className:
+      "hidden md:block max-h-[512px] justify-self-center rounded-r-[3rem] [mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_25%)]",
+  },
+  {
+    src: "/images/shipilka-is-seeing.png",
+    imageFirst: true,
+    className:
+      "hidden md:block max-h-[512px] justify-self-center rounded-l-[3rem] [mask-image:linear-gradient(to_right,rgba(0,0,0,1)_75%,rgba(0,0,0,0)_100%)]",
+  },
+  {
+    src: "/images/shipilka-turns-upside-down.png",
+    imageFirst: false,
+    className:
+      "hidden md:block max-h-[512px] justify-self-center rounded-r-[3rem] [mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_25%)]",
+  },
+];
 ---
 
-<section class=`flex flex-col gap-4 ${isLight ? "mx-[10%] my-auto" : ""}`>
+<section class={`flex flex-col gap-8 ${isLight ? "mx-[10%] my-auto" : ""}`}>
   <div class="text-center">
-    <H2 class="text-center"><span class=`${isLight ? "text-[#f2f5ff]" : "text-[#0b1d3f]"}`>集会に参加する前に……</span></H2>
+    <H2 class="text-center"><span class={headingClass}>{messages.rules.title}</span></H2>
   </div>
-  <div class={`flex items-center justify-center gap-8 ${isLight ? "text-[#f2f5ff]" : "text-[#0b1d3f]"}`}>
-    <div class={bodyTextClass}>
-    <H3>義務事項（しなければならないこと）</H3>
-      <ul class="grid pl-4">
-        <li class={listItemClass}>シピルカくんのアバターを使用してください。</li>
-        <ul class="grid pl-4">
-          <li class={listItemClass}>最低限、シピルカくんの顔（Body）を使用してください。</li>
-        </ul>
-        <li class={listItemClass}>スタッフの指示があった場合は、それに従ってください。</li>
-        <ul class="grid pl-4">
-          <li class={listItemClass}>
-            混雑状況によっては、新規インスタンスに移動をお願いする場合があります。
-          </li>
-        </ul>
-      </ul>
-    </div>
-    <img
-      src="/images/shipilka-is-watching.png"
-      alt="シピルカくんが指を立てて注意を促しているイラスト"
-      class="hidden md:block max-h-[512px] justify-self-center rounded-r-[3rem] [mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_25%)]"
-    />
-  </div>
-  <div class={`flex items-center justify-center gap-8 ${isLight ? "text-[#f2f5ff]" : "text-[#0b1d3f]"}`}>
-    <img
-      src="/images/shipilka-is-seeing.png"
-      alt="シピルカくんが指を立てて注意を促しているイラスト"
-      class="hidden md:block max-h-[512px] justify-self-center rounded-l-[3rem] [mask-image:linear-gradient(to_right,rgba(0,0,0,1)_75%,rgba(0,0,0,0)_100%)]"
-    />
-    <div>
-      <H3>できること</H3>
-      <ul class="grid pl-4">
-        <li class={listItemClass}>サンプルアバターで参加することができます。</li>
-        <ul class="grid pl-4">
-          <li class={listItemClass}>
-            サンプルアバターをお持ちでない場合は、スタッフにお声がけください。
-          </li>
-        </ul>
-        <li class={listItemClass}>インスタンス内では撮影することができます。</li>
-        <ul class="grid pl-4">
-          <li class={listItemClass}>
-            撮影した画像などはSNSや集会の告知などで使用することがあります。
-          </li>
-        </ul>
-      </ul>
-    </div>
-  </div>
-  <div class={`flex items-center justify-center gap-8 ${isLight ? "text-[#f2f5ff]" : "text-[#0b1d3f]"}`}>
-    <div>
-      <H3>禁止事項（してはいけないこと）</H3>
-      <ul class="grid pl-4">
-        <li class={listItemClass}>以下に該当するアバターは使用してはいけません。</li>
-        <ul class="grid pl-4">
-          <li class={listItemClass}>センシティブな内容が含まれるアバター</li>
-          <li class={listItemClass}>アバターの名誉を毀損する極端なキメラアバター</li>
-          <li class={listItemClass}>利用規約に違反するアバター</li>
-          <li class={listItemClass}>違法アップロードされたアバター</li>
-        </ul>
-        <li class={listItemClass}>ハラスメント行為をしてはいけません。</li>
-      </ul>
-      スタッフの裁量で予告なくインスタンスから退場させていただくことがあります。
-    </div>
-    <img
-      src="/images/shipilka-turns-upside-down.png"
-      alt="シピルカくんが指を立てて注意を促しているイラスト"
-      class="hidden md:block max-h-[512px] justify-self-center rounded-r-[3rem] [mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_25%)]"
-    />
-  </div>
+  {
+    messages.rules.sections.map((section, index) => {
+      const media = sectionMedia[index];
+      const text = (
+        <div class={textClass}>
+          <H3>{section.title}</H3>
+          <ul class="grid gap-2 pl-6">
+            {section.items.map((item) => (
+              <li class={textClass}>
+                <span>{item.text}</span>
+                {
+                  item.children && item.children.length > 0 && (
+                    <ul class="mt-2 grid gap-2 pl-6">
+                      {item.children.map((child) => (
+                        <li class={textClass}>{child}</li>
+                      ))}
+                    </ul>
+                  )
+                }
+              </li>
+            ))}
+          </ul>
+          {section.footer && <p class={`mt-3 ${textClass}`}>{section.footer}</p>}
+        </div>
+      );
+      const image = (
+        <img
+          src={media.src}
+          alt={section.imageAlt}
+          class={media.className}
+        />
+      );
 
+      return (
+        <div
+          class={`flex items-center justify-center gap-8 max-[900px]:flex-col ${
+            isLight ? "text-[#f2f5ff]" : "text-[#0b1d3f]"
+          }`}
+        >
+          {media.imageFirst ? image : text}
+          {media.imageFirst ? text : image}
+        </div>
+      );
+    })
+  }
 </section>

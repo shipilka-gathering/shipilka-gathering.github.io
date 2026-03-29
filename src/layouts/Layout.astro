@@ -1,22 +1,48 @@
 ---
-import "../styles/global.css";
 import Footer from "../components/Footer.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import "../styles/global.css";
+
+import { defaultLocale, getHtmlLang, type LocaleCode } from "../i18n/config";
+import type { Messages } from "../i18n/messages";
+import {
+  getDefaultAlternateHref,
+  getLocaleRoot,
+  type AlternateLink,
+} from "../i18n/routing";
+
 const {
-  title = "シピルカくん集会",
-  description = "Shipilka Gathering のお知らせサイト",
-} = Astro.props;
-const navItems = [
-  { href: "/", label: "ホーム" },
-  { href: "https://vrc.group/SIPILK.2143", label: "VRChatグループ ↗" },
-  { href: "https://x.com/Shipilka_club", label: "Twitter ↗" },
-  { href: "https://discord.com/invite/MzXx8RjCuw", label: "Discord ↗" },
-  { href: "/events/", label: "イベント" },
-  { href: "/articles/", label: "記事" },
-];
+  locale,
+  messages,
+  title = messages.seo.siteTitle,
+  description = messages.seo.siteDescription,
+  languagePageHref,
+  alternateLinks = [],
+  canonicalPath = getLocaleRoot(locale),
+  xDefaultHref,
+} = Astro.props as {
+  locale: LocaleCode;
+  messages: Messages;
+  title?: string;
+  description?: string;
+  languagePageHref: string;
+  alternateLinks?: AlternateLink[];
+  canonicalPath?: string;
+  xDefaultHref?: string;
+};
+
+const siteOrigin = Astro.site ?? Astro.url;
+const canonicalUrl = new URL(canonicalPath, siteOrigin).toString();
+const defaultAlternateHref = getDefaultAlternateHref(
+  Object.fromEntries(alternateLinks.map((link) => [link.locale, link.href])),
+  xDefaultHref ?? getLocaleRoot(defaultLocale),
+);
+const fontHref =
+  "https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Sans+KR:wght@100..900&family=Noto+Sans+SC:wght@100..900&family=Noto+Sans+TC:wght@100..900&display=swap";
 ---
 
 <!doctype html>
-<html lang="ja">
+<html lang={getHtmlLang(locale)}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -24,58 +50,50 @@ const navItems = [
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    {
+      alternateLinks.map((link) => (
+        <link
+          rel="alternate"
+          hreflang={getHtmlLang(link.locale)}
+          href={new URL(link.href, siteOrigin).toString()}
+        />
+      ))
+    }
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href={new URL(defaultAlternateHref, siteOrigin).toString()}
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap"
-      rel="stylesheet"
-    />
+    <link href={fontHref} rel="stylesheet" />
   </head>
   <body
-    class="m-0 min-h-screen text-[#0b1d3f] font-['Noto_Sans_JP','Space_Grotesk',system-ui,-apple-system,BlinkMacSystemFont,'Segoe_UI',sans-serif] [background:radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.08),transparent_30%),radial-gradient(circle_at_80%_10%,rgba(255,255,255,0.1),transparent_32%),linear-gradient(140deg,#06245f_0%,#0c3388_40%,#1a4da0_100%)]"
+    class="m-0 min-h-screen text-[#0b1d3f] font-['Noto_Sans_JP','Noto_Sans_KR','Noto_Sans_SC','Noto_Sans_TC',system-ui,-apple-system,BlinkMacSystemFont,'Segoe_UI',sans-serif] [background:radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.08),transparent_30%),radial-gradient(circle_at_80%_10%,rgba(255,255,255,0.1),transparent_32%),linear-gradient(140deg,#06245f_0%,#0c3388_40%,#1a4da0_100%)]"
   >
-    <div class="fixed text-red-500 text-xl">β版</div>
+    <div class="fixed text-red-500 text-xl">{messages.site.betaBadge}</div>
     <div
       class="fixed inset-0 z-0 pointer-events-none [background:radial-gradient(circle_at_15%_30%,rgba(244,194,31,0.12),transparent_30%),radial-gradient(circle_at_90%_10%,rgba(255,255,255,0.12),transparent_35%),radial-gradient(circle_at_80%_70%,rgba(12,51,136,0.25),transparent_40%)]"
       aria-hidden="true"
     >
     </div>
-    <header
-      class="flex flex-col md:flex-row w-full items-center gap-4 py-12 px-4 md:p-12 [background:linear-gradient(to_top,transparent_0%,rgba(0,0,0,0.5)_100%)]"
-    >
-      <a
-        class="inline-flex items-center gap-3 no-underline text-[inherit]"
-        href="/"
-      >
-        <img
-          src="/images/logo-wide.png"
-          alt="シピルカくん集会のロゴ"
-          loading="lazy"
-          class="h-[52px] w-auto object-contain"
-        />
-      </a>
-      <nav
-        class="ml-0 md:ml-auto flex max-w-full items-center gap-1 overflow-x-auto flex-nowrap"
-      >
-        {
-          navItems.map((item) => (
-            <a
-              class="inline-flex shrink-0 whitespace-nowrap rounded-[10px] px-[0.65rem] py-[0.4rem] font-semibold text-[#f2f5ff] no-underline [transition:background_0.2s_ease,transform_0.15s_ease] hover:-translate-y-[1px] hover:bg-[rgba(12,51,136,0.08)]"
-              href={item.href}
-            >
-              {item.label}
-            </a>
-          ))
-        }
-      </nav>
-    </header>
+    <SiteHeader
+      locale={locale}
+      messages={messages}
+      languagePageHref={languagePageHref}
+    />
     <div
-      class="relative z-10 mx-auto px-6 md:px-12 xl:px-24 2xl:px-48 pt-6 pb-12 max-[720px]:px-4 max-[720px]:pt-4 max-[720px]:pb-10"
+      class="relative z-10 mx-auto px-6 pt-6 pb-12 md:px-12 xl:px-24 2xl:px-48 max-[720px]:px-4 max-[720px]:pt-4 max-[720px]:pb-10"
     >
       <main class="mt-6 flex flex-col gap-4">
         <slot />
       </main>
     </div>
-    <Footer />
+    <Footer
+      locale={locale}
+      languagePageHref={languagePageHref}
+      messages={messages}
+    />
   </body>
 </html>

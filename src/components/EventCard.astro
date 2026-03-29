@@ -1,20 +1,16 @@
 ---
-import type { Event } from "../data/events";
-import H3 from "./H3.astro";
+import type { LocalizedEvent } from "../data/events";
+import { formatEventCardDate } from "../i18n/format";
+import type { Messages } from "../i18n/messages";
+import { getEventPath } from "../i18n/routing";
 
-const { event, compact = true } = Astro.props as {
-  event: Event;
+const { event, compact = true, messages } = Astro.props as {
+  event: LocalizedEvent;
   compact?: boolean;
+  messages: Messages;
 };
 
-const date = new Date(event.date);
-const formattedDate = date.toLocaleDateString("ja-JP", {
-  year: "numeric",
-  month: "short",
-  day: "numeric",
-  weekday: "short",
-  timeZone: "Asia/Tokyo",
-});
+const formattedDate = formatEventCardDate(event.locale, event.date);
 ---
 
 <article
@@ -29,19 +25,18 @@ const formattedDate = date.toLocaleDateString("ja-JP", {
     <div class="text-xl md:text-3xl 2xl:text-4xl font-bold leading-[1.3]">
       <a
         class="text-[inherit] no-underline hover:underline"
-        href={`/events/${event.slug}/`}
+        href={getEventPath(event.locale, event.slug)}
       >
         {event.title}
       </a>
     </div>
-
     {
-      event.tags && (
+      event.tags.length > 0 && (
         <div class="flex flex-wrap gap-[0.4rem]">
           {event.tags.map((tag) => (
             <span
               class="inline-flex items-center gap-[0.35rem] rounded-full bg-[rgba(12,51,136,0.12)] px-[0.7rem] py-[0.25rem] text-[0.9rem] font-semibold text-[#0b1d3f]"
-              aria-label={`タグ: ${tag}`}
+              aria-label={`${messages.events.cardTagLabelPrefix}: ${tag}`}
             >
               {tag}
             </span>
@@ -49,4 +44,5 @@ const formattedDate = date.toLocaleDateString("ja-JP", {
         </div>
       )
     }
+  </div>
 </article>

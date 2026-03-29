@@ -1,0 +1,138 @@
+{
+  "site": {
+    "name": "希皮爾卡君集會",
+    "logoAlt": "希皮爾卡君集會標誌",
+    "betaBadge": "測試版"
+  },
+  "nav": {
+    "home": "首頁",
+    "events": "活動",
+    "articles": "文章",
+    "vrchatGroup": "VRChat 群組 ↗",
+    "twitter": "Twitter ↗",
+    "discord": "Discord ↗"
+  },
+  "languageSwitcher": {
+    "label": "語言",
+    "current": "目前語言"
+  },
+  "languagePage": {
+    "title": "選擇語言",
+    "description": "請選擇想查看的語言。若目前頁面有對應翻譯，會直接帶你前往該頁面。",
+    "intro": "切換到所選語言。",
+    "destinationLabel": "前往頁面",
+    "currentBadge": "目前語言",
+    "fallbackNote": "如果文章沒有對應翻譯，將前往該語言的文章列表。"
+  },
+  "home": {
+    "title": "希皮爾卡君集會",
+    "description": "這是於 VRChat 舉辦的希皮爾卡君集會資訊網站，整理了歷屆活動與參加規則。",
+    "heroLines": [
+      "滿月已至，",
+      "許多希皮爾卡君",
+      "正在等你"
+    ],
+    "heroBody": "希皮爾卡君集會是主要在 VRChat 舉辦的希皮爾卡君 avatar 聚會。第一次參加或久違回來的朋友都歡迎加入。",
+    "primaryCta": "查看最新活動",
+    "secondaryCta": "加入群組 ↗",
+    "latestSectionTitle": "最新集會",
+    "allEventsLink": "查看所有歷屆集會 →",
+    "closingLines": [
+      "已經滑到底了！",
+      "一起來參加希皮爾卡君集會吧"
+    ],
+    "heroImageAlt": "許多希皮爾卡君圍繞月亮聚集的插畫",
+    "heroBottomAlt": "許多希皮爾卡君站在如鏡湖面上的插畫"
+  },
+  "rules": {
+    "title": "參加集會前請先閱讀……",
+    "sections": [
+      {
+        "title": "必須遵守",
+        "imageAlt": "希皮爾卡君舉起手指提醒注意的插畫",
+        "items": [
+          {
+            "text": "請使用希皮爾卡君的 avatar 參加。",
+            "children": [
+              "至少請使用希皮爾卡君的臉部（Body）。"
+            ]
+          },
+          {
+            "text": "若工作人員有指示，請務必配合。",
+            "children": [
+              "依現場擁擠情況，可能會請你移動到新的 instance。"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "可以做的事",
+        "imageAlt": "希皮爾卡君以歡迎姿勢站立的插畫",
+        "items": [
+          {
+            "text": "可以使用 sample avatar 參加。",
+            "children": [
+              "如果沒有 sample avatar，請向工作人員詢問。"
+            ]
+          },
+          {
+            "text": "可以在 instance 內拍照。",
+            "children": [
+              "拍攝的圖片可能會用於社群媒體或集會宣傳。"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "禁止事項",
+        "imageAlt": "希皮爾卡君倒掛著提醒注意的插畫",
+        "items": [
+          {
+            "text": "禁止使用以下類型的 avatar：",
+            "children": [
+              "包含敏感內容的 avatar",
+              "嚴重損害 avatar 名譽的極端 chimera avatar",
+              "違反使用條款的 avatar",
+              "非法上傳的 avatar"
+            ]
+          },
+          {
+            "text": "禁止騷擾行為。"
+          }
+        ],
+        "footer": "工作人員可依判斷在未事先通知的情況下請你離開 instance。"
+      }
+    ]
+  },
+  "events": {
+    "listTitle": "活動一覽",
+    "listDescription": "這裡整理了至今舉辦過的希皮爾卡君集會。",
+    "detailDateLabel": "舉辦時間",
+    "detailAnnouncementLabel": "公告推文",
+    "detailAnnouncementEmpty": "目前還沒有公告貼文。",
+    "tagsLabel": "標籤",
+    "cardTagLabelPrefix": "標籤",
+    "empty": "目前還沒有預定活動。"
+  },
+  "articles": {
+    "listTitle": "文章一覽",
+    "listDescription": "關於希皮爾卡君集會的公告與記錄。",
+    "empty": "目前還沒有公開文章。",
+    "publishedOn": "發布日期"
+  },
+  "footer": {
+    "languagesTitle": "語言",
+    "socialTitle": "社群媒體",
+    "siteTitle": "網站",
+    "eventsLink": "活動一覽",
+    "articlesLink": "文章一覽"
+  },
+  "seo": {
+    "siteTitle": "希皮爾卡君集會",
+    "siteDescription": "希皮爾卡君集會資訊網站",
+    "eventsTitle": "活動一覽 | 希皮爾卡君集會",
+    "eventsDescription": "希皮爾卡君集會的活動列表。",
+    "articlesTitle": "文章一覽 | 希皮爾卡君集會",
+    "articlesDescription": "希皮爾卡君集會的文章列表。"
+  }
+}
