@@ -1,0 +1,142 @@
+{
+  "site": {
+    "name": "Shipilka君集会",
+    "logoAlt": "Shipilka君集会标志"
+  },
+  "nav": {
+    "home": "首页",
+    "events": "活动",
+    "articles": "文章",
+    "vrchatGroup": "VRChat 群组 ↗",
+    "twitter": "Twitter ↗",
+    "discord": "Discord ↗"
+  },
+  "languageSwitcher": {
+    "label": "语言",
+    "current": "当前语言"
+  },
+  "languagePage": {
+    "title": "选择语言",
+    "description": "请选择你想查看的语言。如果当前页面有对应翻译，会直接跳转到该页面。",
+    "intro": "切换到所选语言。",
+    "destinationLabel": "跳转目标",
+    "currentBadge": "当前语言",
+    "fallbackNote": "如果文章没有对应翻译，将跳转到该语言的文章列表。"
+  },
+  "home": {
+    "title": "Shipilka君集会",
+    "description": "这是介绍 VRChat 中举办的Shipilka君集会的网站，整理了往届活动与参加规则。",
+    "heroLines": [
+      "满月已至，",
+      "许多Shipilka君",
+      "正在等你"
+    ],
+    "heroBody": "Shipilka君集会是主要在 VRChat 举办的Shipilka君模型聚会。无论是第一次参加，还是许久未见的朋友，都欢迎加入。",
+    "primaryCta": "查看最新活动",
+    "secondaryCta": "加入群组 ↗",
+    "latestSectionTitle": "最新集会",
+    "allEventsLink": "查看所有往期集会 →",
+    "closingLines": [
+      "已经滑到底了！",
+      "来参加Shipilka君集会吧"
+    ],
+    "heroImageAlt": "许多Shipilka君围绕月亮聚集的插画",
+    "heroBottomAlt": "许多Shipilka君站在如镜湖面上的插画"
+  },
+  "rules": {
+    "title": "参加集会前请先阅读……",
+    "sections": [
+      {
+        "title": "必须事项",
+        "imageAlt": "Shipilka君竖起手指提醒注意的插画",
+        "items": [
+          {
+            "text": "请使用 Shipilka君的模型（Avatar）。",
+            "children": [
+              "至少请使用 Shipilka君的面部（Body）部分。"
+            ]
+          },
+          {
+            "text": "若有工作人员的指示，请务必配合。",
+            "children": [
+              "若房间人数过多，可能会请求您前往新的房间（Instance）。"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "允许事项",
+        "imageAlt": "Shipilka君以欢迎姿势站立的插画",
+        "items": [
+          {
+            "text": "您可以使用样品模型（Sample Avatar） 参与活动。",
+            "children": [
+              "如果您没有样品模型，请联系工作人员。"
+            ]
+          },
+          {
+            "text": "您可以在实例内进行拍照。",
+            "children": [
+              "拍摄的图片等可能会用于 社交媒体或活动宣传。"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "禁止事项",
+        "imageAlt": "Shipilka君倒挂着提醒注意的插画",
+        "items": [
+          {
+            "text": "请勿使用以下类型的模型：",
+            "children": [
+              "含有敏感内容的模型",
+              "严重损害原始形象名誉的极端奇美拉模型",
+              "违反使用条款的模型",
+              "非法上传的模型"
+            ]
+          },
+          {
+            "text": "禁止骚扰行为（Harassment）。"
+          }
+        ],
+        "footer": "工作人员有权在无需提前通知的情况下，将您移出实例。"
+      }
+    ]
+  },
+  "events": {
+    "listTitle": "活动一览",
+    "listDescription": "这里整理了至今举办过的Shipilka君集会。",
+    "detailDateLabel": "举办时间",
+    "detailAnnouncementLabel": "公告推文",
+    "detailAnnouncementEmpty": "目前还没有公告帖子。",
+    "tagsLabel": "标签",
+    "cardTagLabelPrefix": "标签",
+    "empty": "目前还没有预定活动。"
+  },
+  "articles": {
+    "listTitle": "文章一览",
+    "listDescription": "关于Shipilka君集会的公告与记录。",
+    "empty": "目前还没有公开文章。",
+    "publishedOn": "发布日期"
+  },
+  "footer": {
+    "languagesTitle": "语言",
+    "socialTitle": "社交媒体",
+    "siteTitle": "站点",
+    "eventsLink": "活动一览",
+    "articlesLink": "文章一览",
+    "disclaimer": "免责声明",
+    "disclaimerDescription": [
+      "本网站（以及本集会）是由 3D 模型“Shipilka君”的粉丝自发组织的非官方项目。",
+      "作为模型权利人的“かなﾘぁ”(KANAlia)老师并未参与本项目的运营、资金管理及内容。若有任何问题，请联系主办者“狐威ミコト”或工作人员。"
+    ]
+  },
+  "seo": {
+    "siteTitle": "Shipilka君集会",
+    "siteDescription": "Shipilka君集会信息站",
+    "eventsTitle": "活动一览 | Shipilka君集会",
+    "eventsDescription": "Shipilka君集会的活动列表。",
+    "articlesTitle": "文章一览 | Shipilka君集会",
+    "articlesDescription": "Shipilka君集会的文章列表。"
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "site": {
+    "name": "Shipilka Gathering",
+    "logoAlt": "Shipilka Gathering logo"
+  },
+  "nav": {
+    "home": "Home",
+    "events": "Events",
+    "articles": "Articles",
+    "vrchatGroup": "VRChat Group ↗",
+    "twitter": "Twitter ↗",
+    "discord": "Discord ↗"
+  },
+  "languageSwitcher": {
+    "label": "Language",
+    "current": "Current language"
+  },
+  "languagePage": {
+    "title": "Choose a language",
+    "description": "Pick the language you want to view. If a matching translation exists for the current page, you will be taken there.",
+    "intro": "Switch to the selected language.",
+    "destinationLabel": "Destination",
+    "currentBadge": "Current language",
+    "fallbackNote": "If an article is not translated, you will be taken to that language's article list."
+  },
+  "home": {
+    "title": "Shipilka Gathering",
+    "description": "An information site for the Shipilka Gathering held in VRChat, with event archives and participation rules.",
+    "heroLines": [
+      "The moon is full,",
+      "and many Shipilkas",
+      "are waiting for you"
+    ],
+    "heroBody": "Shipilka Gathering is a meetup for the Shipilka avatar, mainly held in VRChat. First-timers and returning visitors are both welcome.",
+    "primaryCta": "See the latest event",
+    "secondaryCta": "Join the group ↗",
+    "latestSectionTitle": "Latest gathering",
+    "allEventsLink": "Browse all past gatherings →",
+    "closingLines": [
+      "That's the end of the scroll.",
+      "Join the Shipilka Gathering"
+    ],
+    "heroImageAlt": "An illustration of many Shipilkas gathered around the moon",
+    "heroBottomAlt": "An illustration of many Shipilkas standing on a mirror-like lake"
+  },
+  "rules": {
+    "title": "Before joining the gathering…",
+    "sections": [
+      {
+        "title": "MUST",
+        "imageAlt": "An illustration of Shipilka raising a finger to give a warning",
+        "items": [
+          {
+            "text": "You must use the Shipilka avatar.",
+            "children": [
+              "At minimum, you must use the face (Body) of Shipilka."
+            ]
+          },
+          {
+            "text": "If the staffs give you instructions, please follow them.",
+            "children": [
+              "If the instance becomes too crowed, we may ask you to move to a new one."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "CAN",
+        "imageAlt": "An illustration of Shipilka standing in a welcoming pose",
+        "items": [
+          {
+            "text": "You can join with a sample avatar.",
+            "children": [
+              "If you don’t have one, please ask the staff for help."
+            ]
+          },
+          {
+            "text": "You can take photos during the event.",
+            "children": [
+              "Photos may be shared on social media or used for event announcements."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "MUST NOT",
+        "imageAlt": "An illustration of Shipilka upside down as a warning",
+        "items": [
+          {
+            "text": "Do not use avatars that fall into any of the following categories:",
+            "children": [
+              "Contain adult or explicit content",
+              "Are extreme or disrespectful “chimera” versions of the original avatar",
+              "Violate Terms of Service",
+              "Are illegally uploaded or distributed"
+            ]
+          },
+          {
+            "text": "Do not engage in harassment or rude behaviour."
+          }
+        ],
+        "footer": "The staff may remove you from the instance without prior warning."
+      }
+    ]
+  },
+  "events": {
+    "listTitle": "Event Archive",
+    "listDescription": "A list of the Shipilka Gatherings that have been held so far.",
+    "detailDateLabel": "Date and time",
+    "detailAnnouncementLabel": "Announcement post",
+    "detailAnnouncementEmpty": "No announcement post is available yet.",
+    "tagsLabel": "Tags",
+    "cardTagLabelPrefix": "Tag",
+    "empty": "No events have been scheduled yet."
+  },
+  "articles": {
+    "listTitle": "Articles",
+    "listDescription": "News and notes about the Shipilka Gathering.",
+    "empty": "No articles have been published yet.",
+    "publishedOn": "Published"
+  },
+  "footer": {
+    "languagesTitle": "Languages",
+    "socialTitle": "Social media",
+    "siteTitle": "Site",
+    "eventsLink": "Events",
+    "articlesLink": "Articles",
+    "disclaimer": "Disclaimer",
+    "disclaimerDescription": [
+      "This site and gathering are an unofficial volunteer project created by fans of the 3D model \"Shipilka.\"",
+      "The model rights holder, \"かなﾘぁ\" (KANAlia), is not involved in the operation, funding, or content of this project. For inquiries, please contact the organizer, \"狐威ミコト\", or the staff."
+    ]
+  },
+  "seo": {
+    "siteTitle": "Shipilka Gathering",
+    "siteDescription": "An information site for Shipilka Gathering",
+    "eventsTitle": "Events | Shipilka Gathering",
+    "eventsDescription": "Event archive for Shipilka Gathering.",
+    "articlesTitle": "Articles | Shipilka Gathering",
+    "articlesDescription": "Article archive for Shipilka Gathering."
+  }
+}

@@ -1,0 +1,63 @@
+---
+import EventCard from "../../../components/EventCard.astro";
+import H1 from "../../../components/H1.astro";
+import Layout from "../../../layouts/Layout.astro";
+import { getLocalizedEvents } from "../../../data/events";
+import { localeCodes, type LocaleCode } from "../../../i18n/config";
+import { getMessages } from "../../../i18n/messages";
+import {
+  buildAlternateLinks,
+  getDefaultAlternateHref,
+  getEventsIndexPath,
+  getLanguagePageHref,
+} from "../../../i18n/routing";
+
+export function getStaticPaths() {
+  return localeCodes.map((locale) => ({
+    params: { locale },
+    props: { locale },
+  }));
+}
+
+const { locale } = Astro.props as { locale: LocaleCode };
+const messages = getMessages(locale);
+const events = await getLocalizedEvents(locale);
+
+const localizedEventIndexPaths = Object.fromEntries(
+  localeCodes.map((code) => [code, getEventsIndexPath(code)]),
+) as Partial<Record<LocaleCode, string>>;
+const alternateLinks = buildAlternateLinks(localizedEventIndexPaths);
+const xDefaultHref = getDefaultAlternateHref(
+  localizedEventIndexPaths,
+  getEventsIndexPath(locale),
+);
+---
+
+<Layout
+  locale={locale}
+  messages={messages}
+  title={messages.seo.eventsTitle}
+  description={messages.seo.eventsDescription}
+  languagePageHref={getLanguagePageHref(locale, { view: "events" })}
+  alternateLinks={alternateLinks}
+  canonicalPath={getEventsIndexPath(locale)}
+  xDefaultHref={xDefaultHref}
+>
+  <section
+    class="m-auto max-w-240 rounded-[20px] border border-[rgba(255,255,255,0.3)] bg-[rgba(255,255,255,0.9)] p-6 shadow-[0_18px_42px_rgba(0,26,77,0.14),inset_0_0_0_0.5px_rgba(12,51,136,0.15)] max-[720px]:p-5"
+  >
+    <H1>{messages.events.listTitle}</H1>
+    <p class="m-0 leading-[1.7] text-[rgba(11,29,63,0.8)]">
+      {messages.events.listDescription}
+    </p>
+    <div class="mt-4 grid gap-3">
+      {
+        events.length > 0 ? (
+          events.map((event) => <EventCard event={event} messages={messages} />)
+        ) : (
+          <p class="m-0 text-[rgba(11,29,63,0.8)]">{messages.events.empty}</p>
+        )
+      }
+    </div>
+  </section>
+</Layout>

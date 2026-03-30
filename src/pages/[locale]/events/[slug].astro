@@ -1,0 +1,106 @@
+---
+import Tweet from "astro-tweet";
+
+import H1 from "../../../components/H1.astro";
+import H2 from "../../../components/H2.astro";
+import Rules from "../../../components/Rules.astro";
+import { getEventEntries, localizeEvent } from "../../../data/events";
+import { type LocaleCode, localeCodes } from "../../../i18n/config";
+import { formatEventDateTime } from "../../../i18n/format";
+import { getMessages } from "../../../i18n/messages";
+import {
+  buildAlternateLinks,
+  getDefaultAlternateHref,
+  getEventPath,
+  getLanguagePageHref,
+} from "../../../i18n/routing";
+import Layout from "../../../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  const events = await getEventEntries();
+
+  return localeCodes.flatMap((locale) =>
+    events.map((entry) => ({
+      params: { locale, slug: entry.data.slug },
+      props: { locale, event: localizeEvent(entry, locale) },
+    })),
+  );
+}
+
+const { locale, event } = Astro.props as {
+  locale: LocaleCode;
+  event: Awaited<ReturnType<typeof localizeEvent>>;
+};
+const messages = getMessages(locale);
+const formattedDate = formatEventDateTime(locale, event.date);
+
+const localizedEventPaths = Object.fromEntries(
+  localeCodes.map((code) => [code, getEventPath(code, event.slug)]),
+) as Partial<Record<LocaleCode, string>>;
+const alternateLinks = buildAlternateLinks(localizedEventPaths);
+const xDefaultHref = getDefaultAlternateHref(
+  localizedEventPaths,
+  getEventPath(locale, event.slug),
+);
+---
+
+<Layout
+  locale={locale}
+  messages={messages}
+  title={`${event.title} | ${messages.site.name}`}
+  description={`${event.title} - ${formattedDate}`}
+  languagePageHref={getLanguagePageHref(locale, {
+    view: "event",
+    slug: event.slug,
+  })}
+  alternateLinks={alternateLinks}
+  canonicalPath={getEventPath(locale, event.slug)}
+  xDefaultHref={xDefaultHref}
+>
+  <article
+    class="m-auto max-w-240 flex-col justify-items-center rounded-[20px] border border-[rgba(255,255,255,0.3)] bg-[rgba(255,255,255,0.9)] p-6 text-slate-900 shadow-[0_18px_42px_rgba(0,26,77,0.14),inset_0_0_0_0.5px_rgba(12,51,136,0.15)] max-[720px]:p-5"
+  >
+    <div>
+      <H1>{event.title}</H1>
+      {
+        event.tags.length > 0 && (
+          <dl
+            class="my-4 grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-x-4 gap-y-[0.6rem]"
+          >
+            <div>
+              <dt class="font-bold text-[#34558f]">{messages.events.tagsLabel}</dt>
+              <dd class="mt-[0.1rem] mb-0 flex flex-wrap gap-[0.4rem]">
+                {event.tags.map((tag) => (
+                  <span class="inline-flex items-center gap-[0.35rem] rounded-full bg-[rgba(12,51,136,0.12)] px-[0.7rem] py-[0.25rem] text-[0.9rem] font-semibold text-[#0b1d3f]">
+                    {tag}
+                  </span>
+                ))}
+              </dd>
+            </div>
+          </dl>
+        )
+      }
+    </div>
+    <div>
+      <section>
+        <H2>{messages.events.detailDateLabel}</H2>
+        <p class="text-2xl xl:text-4xl">{formattedDate}</p>
+      </section>
+
+      <section>
+        <H2>{messages.events.detailAnnouncementLabel}</H2>
+        {
+          event.tweet ? (
+            <Tweet id={event.tweet} />
+          ) : (
+            <p>{messages.events.detailAnnouncementEmpty}</p>
+          )
+        }
+      </section>
+    </div>
+
+    <div class="mt-6">
+      <Rules tone="dark" messages={messages} />
+    </div>
+  </article>
+</Layout>

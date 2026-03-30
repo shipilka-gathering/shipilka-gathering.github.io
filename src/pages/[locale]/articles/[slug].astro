@@ -1,0 +1,74 @@
+---
+import { render } from "astro:content";
+
+import H1 from "../../../components/H1.astro";
+import {
+  getAllArticles,
+  type LocalizedArticle,
+} from "../../../data/articles";
+import { defaultLocale, localeCodes, type LocaleCode } from "../../../i18n/config";
+import { formatArticleDate } from "../../../i18n/format";
+import { getMessages } from "../../../i18n/messages";
+import {
+  buildAlternateLinks,
+  getArticlePath,
+  getArticlesIndexPath,
+  getDefaultAlternateHref,
+  getLanguagePageHref,
+} from "../../../i18n/routing";
+import Layout from "../../../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  const articles = await getAllArticles();
+
+  return articles.map((article) => ({
+    params: { locale: article.locale, slug: article.slug },
+    props: { locale: article.locale, article },
+  }));
+}
+
+const { locale, article } = Astro.props as {
+  locale: LocaleCode;
+  article: LocalizedArticle;
+};
+const messages = getMessages(locale);
+const { Content } = await render(article.entry);
+const formattedDate = formatArticleDate(locale, article.date);
+
+const alternatePathMap = Object.fromEntries(
+  article.availableLocales.map((code) => [code, getArticlePath(code, article.slug)]),
+) as Partial<Record<LocaleCode, string>>;
+const alternateLinks = buildAlternateLinks(alternatePathMap);
+const xDefaultHref = getDefaultAlternateHref(
+  alternatePathMap,
+  article.availableLocales.includes(defaultLocale)
+    ? getArticlePath(defaultLocale, article.slug)
+    : getArticlesIndexPath(defaultLocale),
+);
+---
+
+<Layout
+  locale={locale}
+  messages={messages}
+  title={`${article.title} | ${messages.site.name}`}
+  description={article.description ?? article.excerpt}
+  languagePageHref={getLanguagePageHref(locale, {
+    view: "article",
+    slug: article.slug,
+  })}
+  alternateLinks={alternateLinks}
+  canonicalPath={getArticlePath(locale, article.slug)}
+  xDefaultHref={xDefaultHref}
+>
+  <article
+    class="m-auto max-w-240 rounded-[20px] border border-[rgba(255,255,255,0.3)] bg-[rgba(255,255,255,0.9)] p-6 text-slate-900 shadow-[0_18px_42px_rgba(0,26,77,0.14),inset_0_0_0_0.5px_rgba(12,51,136,0.15)] max-[720px]:p-5"
+  >
+    <H1>{article.title}</H1>
+    <p class="mt-0 mb-4 font-bold text-[#34558f]">
+      {messages.articles.publishedOn}: {formattedDate}
+    </p>
+    <div class="grid gap-3 leading-[1.7] text-[rgba(11,29,63,0.8)]">
+      <Content />
+    </div>
+  </article>
+</Layout>

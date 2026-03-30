@@ -1,0 +1,67 @@
+---
+import ArticleCard from "../../../components/ArticleCard.astro";
+import H1 from "../../../components/H1.astro";
+import { getArticlesByLocale } from "../../../data/articles";
+import { localeCodes, type LocaleCode } from "../../../i18n/config";
+import { getMessages } from "../../../i18n/messages";
+import {
+  buildAlternateLinks,
+  getArticlesIndexPath,
+  getDefaultAlternateHref,
+  getLanguagePageHref,
+} from "../../../i18n/routing";
+import Layout from "../../../layouts/Layout.astro";
+
+export function getStaticPaths() {
+  return localeCodes.map((locale) => ({
+    params: { locale },
+    props: { locale },
+  }));
+}
+
+const { locale } = Astro.props as { locale: LocaleCode };
+const messages = getMessages(locale);
+const articles = await getArticlesByLocale(locale);
+
+const localizedArticleIndexPaths = Object.fromEntries(
+  localeCodes.map((code) => [code, getArticlesIndexPath(code)]),
+) as Partial<Record<LocaleCode, string>>;
+const alternateLinks = buildAlternateLinks(localizedArticleIndexPaths);
+const xDefaultHref = getDefaultAlternateHref(
+  localizedArticleIndexPaths,
+  getArticlesIndexPath(locale),
+);
+---
+
+<Layout
+  locale={locale}
+  messages={messages}
+  title={messages.seo.articlesTitle}
+  description={messages.seo.articlesDescription}
+  languagePageHref={getLanguagePageHref(locale, { view: "articles" })}
+  alternateLinks={alternateLinks}
+  canonicalPath={getArticlesIndexPath(locale)}
+  xDefaultHref={xDefaultHref}
+>
+  <section
+    class="m-auto max-w-240 rounded-[20px] border border-[rgba(255,255,255,0.3)] bg-[rgba(255,255,255,0.9)] p-6 shadow-[0_18px_42px_rgba(0,26,77,0.14),inset_0_0_0_0.5px_rgba(12,51,136,0.15)] max-[720px]:p-5"
+  >
+    <H1
+      class="mt-[0.2rem] mb-4 text-[4rem] font-bold leading-[1.3] text-[#0b1d3f]"
+    >
+      {messages.articles.listTitle}
+    </H1>
+    <p class="m-0 leading-[1.7] text-[rgba(11,29,63,0.8)]">
+      {messages.articles.listDescription}
+    </p>
+    <div class="mt-4 grid gap-[0.85rem]">
+      {
+        articles.length > 0 ? (
+          articles.map((article) => <ArticleCard article={article} />)
+        ) : (
+          <p class="m-0 text-[rgba(11,29,63,0.8)]">{messages.articles.empty}</p>
+        )
+      }
+    </div>
+  </section>
+</Layout>

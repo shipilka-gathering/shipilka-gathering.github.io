@@ -1,0 +1,142 @@
+{
+  "site": {
+    "name": "シピルカくん集会",
+    "logoAlt": "シピルカくん集会のロゴ"
+  },
+  "nav": {
+    "home": "ホーム",
+    "events": "イベント",
+    "articles": "記事",
+    "vrchatGroup": "VRChatグループ ↗",
+    "twitter": "Twitter ↗",
+    "discord": "Discord ↗"
+  },
+  "languageSwitcher": {
+    "label": "言語",
+    "current": "現在の言語"
+  },
+  "languagePage": {
+    "title": "言語を選択",
+    "description": "表示したい言語を選んでください。現在のページに対応する翻訳があれば、そのまま移動します。",
+    "intro": "選択した言語に切り替えます。",
+    "destinationLabel": "移動先",
+    "currentBadge": "現在の言語",
+    "fallbackNote": "翻訳がない記事は、その言語の記事一覧へ移動します。"
+  },
+  "home": {
+    "title": "シピルカくん集会",
+    "description": "VRChatで開催しているシピルカくん集会の告知サイト。過去回のアーカイブやルールをまとめています。",
+    "heroLines": [
+      "月は満ちた",
+      "たくさんのシピルカくんが",
+      "待っている"
+    ],
+    "heroBody": "シピルカくん集会は、主にVRChatで開催しているシピルカくんのアバター集会です。初参加の方も、久しぶりの方も歓迎します！",
+    "primaryCta": "最新のイベントを確認する",
+    "secondaryCta": "グループに参加する ↗",
+    "latestSectionTitle": "最新の集会",
+    "allEventsLink": "過去の集会をすべて見る →",
+    "closingLines": [
+      "スクロールはここまで！",
+      "シピルカくん集会に参加しよう"
+    ],
+    "heroImageAlt": "たくさんのシピルカくんが月の周りに集まっているイラスト",
+    "heroBottomAlt": "たくさんのシピルカくんが鏡のような湖の上にいるイラスト"
+  },
+  "rules": {
+    "title": "集会に参加する前に……",
+    "sections": [
+      {
+        "title": "義務事項（しなければならないこと）",
+        "imageAlt": "シピルカくんが指を立てて注意を促しているイラスト",
+        "items": [
+          {
+            "text": "シピルカくんのアバターを使用してください。",
+            "children": [
+              "最低限、シピルカくんの顔（Body）を使用してください。"
+            ]
+          },
+          {
+            "text": "スタッフの指示があった場合は、それに従ってください。",
+            "children": [
+              "混雑状況によっては、新規インスタンスに移動をお願いする場合があります。"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "できること",
+        "imageAlt": "シピルカくんが歓迎するように立っているイラスト",
+        "items": [
+          {
+            "text": "サンプルアバターで参加することができます。",
+            "children": [
+              "サンプルアバターをお持ちでない場合は、スタッフにお声がけください。"
+            ]
+          },
+          {
+            "text": "インスタンス内では撮影することができます。",
+            "children": [
+              "撮影した画像などはSNSや集会の告知などで使用することがあります。"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "禁止事項（してはいけないこと）",
+        "imageAlt": "シピルカくんが逆さまになって注意を促しているイラスト",
+        "items": [
+          {
+            "text": "以下に該当するアバターは使用してはいけません。",
+            "children": [
+              "センシティブな内容が含まれるアバター",
+              "アバターの名誉を毀損する極端なキメラアバター",
+              "利用規約に違反するアバター",
+              "違法アップロードされたアバター"
+            ]
+          },
+          {
+            "text": "ハラスメント行為をしてはいけません。"
+          }
+        ],
+        "footer": "スタッフの裁量で予告なくインスタンスから退場させていただくことがあります。"
+      }
+    ]
+  },
+  "events": {
+    "listTitle": "イベント一覧",
+    "listDescription": "これまでに開催したシピルカくん集会をまとめています。",
+    "detailDateLabel": "開催日時",
+    "detailAnnouncementLabel": "告知ツイート",
+    "detailAnnouncementEmpty": "告知ポストはまだありません。",
+    "tagsLabel": "タグ",
+    "cardTagLabelPrefix": "タグ",
+    "empty": "開催予定のイベントはまだありません。"
+  },
+  "articles": {
+    "listTitle": "記事一覧",
+    "listDescription": "シピルカくん集会に関するお知らせや記録です。",
+    "empty": "公開されている記事はまだありません。",
+    "publishedOn": "公開日"
+  },
+  "footer": {
+    "languagesTitle": "言語",
+    "socialTitle": "ソーシャルメディア",
+    "siteTitle": "サイト",
+    "eventsLink": "イベント一覧",
+    "articlesLink": "記事一覧",
+    "disclaimer": "免責事項",
+    "disclaimerDescription": [
+      "※本サイト（および本集会）は、3Dモデル「シピルカ」のファンによる有志の非公式プロジェクトです。",
+      "※モデル権利者である「かなﾘぁ」様は、本プロジェクトの運営、資金管理、および内容について一切関与されておりません。お問い合わせは主催の「狐威ミコト」またはスタッフ各位までお願いいたします。"
+    ]
+  },
+  "seo": {
+    "siteTitle": "シピルカくん集会",
+    "siteDescription": "Shipilka Gathering のお知らせサイト",
+    "eventsTitle": "イベント一覧 | シピルカくん集会",
+    "eventsDescription": "シピルカくん集会のイベント一覧です。",
+    "articlesTitle": "記事一覧 | シピルカくん集会",
+    "articlesDescription": "シピルカくん集会のブログ記事一覧です。"
+  }
+}

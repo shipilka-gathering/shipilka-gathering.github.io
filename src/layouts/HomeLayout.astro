@@ -1,14 +1,48 @@
 ---
-import "../styles/global.css";
 import Footer from "../components/Footer.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import "../styles/global.css";
+
+import { defaultLocale, getHtmlLang, type LocaleCode } from "../i18n/config";
+import type { Messages } from "../i18n/messages";
+import {
+  getDefaultAlternateHref,
+  getLocaleRoot,
+  type AlternateLink,
+} from "../i18n/routing";
+
 const {
-  title = "シピルカくん集会",
-  description = "Shipilka Gathering のお知らせサイト",
-} = Astro.props;
+  locale,
+  messages,
+  title = messages.home.title,
+  description = messages.home.description,
+  languagePageHref,
+  alternateLinks = [],
+  canonicalPath = getLocaleRoot(locale),
+  xDefaultHref,
+} = Astro.props as {
+  locale: LocaleCode;
+  messages: Messages;
+  title?: string;
+  description?: string;
+  languagePageHref: string;
+  alternateLinks?: AlternateLink[];
+  canonicalPath?: string;
+  xDefaultHref?: string;
+};
+
+const siteOrigin = Astro.site ?? Astro.url;
+const canonicalUrl = new URL(canonicalPath, siteOrigin).toString();
+const defaultAlternateHref = getDefaultAlternateHref(
+  Object.fromEntries(alternateLinks.map((link) => [link.locale, link.href])),
+  xDefaultHref ?? getLocaleRoot(defaultLocale),
+);
+const fontHref =
+  "https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Sans+KR:wght@100..900&family=Noto+Sans+SC:wght@100..900&family=Noto+Sans+TC:wght@100..900&display=swap";
 ---
 
 <!doctype html>
-<html lang="ja">
+<html lang={getHtmlLang(locale)}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -16,25 +50,44 @@ const {
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    {
+      alternateLinks.map((link) => (
+        <link
+          rel="alternate"
+          hreflang={getHtmlLang(link.locale)}
+          href={new URL(link.href, siteOrigin).toString()}
+        />
+      ))
+    }
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href={new URL(defaultAlternateHref, siteOrigin).toString()}
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap"
-      rel="stylesheet"
-    />
+    <link href={fontHref} rel="stylesheet" />
   </head>
   <body
-    class="m-0 min-h-screen text-[#0b1d3f] font-['Noto_Sans_JP','Space_Grotesk',system-ui,-apple-system,BlinkMacSystemFont,'Segoe_UI',sans-serif] [background:linear-gradient(#04618f_0%,#1a4da0_50%)]"
+    class="m-0 min-h-screen text-[#0b1d3f] font-['Noto_Sans_JP','Noto_Sans_KR','Noto_Sans_SC','Noto_Sans_TC',system-ui,-apple-system,BlinkMacSystemFont,'Segoe_UI',sans-serif] [background:linear-gradient(#04618f_0%,#1a4da0_50%)]"
   >
-    <div class="fixed text-red-500 text-xl z-11">β版</div>
     <div
       class="fixed inset-0 z-0 pointer-events-none [background:radial-gradient(circle_at_15%_30%,rgba(244,194,31,0.12),transparent_30%),radial-gradient(circle_at_90%_10%,rgba(255,255,255,0.12),transparent_35%),radial-gradient(circle_at_80%_70%,rgba(12,51,136,0.25),transparent_40%)]"
       aria-hidden="true"
     >
     </div>
-
+    <SiteHeader
+      locale={locale}
+      messages={messages}
+      languagePageHref={languagePageHref}
+      overlay={true}
+    />
     <slot />
-
-    <Footer />
+    <Footer
+      locale={locale}
+      languagePageHref={languagePageHref}
+      messages={messages}
+    />
   </body>
 </html>
