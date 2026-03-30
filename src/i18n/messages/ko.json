@@ -1,8 +1,7 @@
 {
   "site": {
     "name": "시필카군 모임",
-    "logoAlt": "시필카군 모임 로고",
-    "betaBadge": "베타"
+    "logoAlt": "시필카군 모임 로고"
   },
   "nav": {
     "home": "홈",

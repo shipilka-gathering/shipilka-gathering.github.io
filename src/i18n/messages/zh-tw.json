@@ -1,8 +1,7 @@
 {
   "site": {
     "name": "Shipilka君集會",
-    "logoAlt": "Shipilka君集會標誌",
-    "betaBadge": "測試版"
+    "logoAlt": "Shipilka君集會標誌"
   },
   "nav": {
     "home": "首頁",

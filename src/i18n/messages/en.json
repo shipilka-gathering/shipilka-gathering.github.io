@@ -1,8 +1,7 @@
 {
   "site": {
     "name": "Shipilka Gathering",
-    "logoAlt": "Shipilka Gathering logo",
-    "betaBadge": "Beta"
+    "logoAlt": "Shipilka Gathering logo"
   },
   "nav": {
     "home": "Home",
