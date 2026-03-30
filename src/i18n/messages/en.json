@@ -124,7 +124,12 @@
     "socialTitle": "Social media",
     "siteTitle": "Site",
     "eventsLink": "Events",
-    "articlesLink": "Articles"
+    "articlesLink": "Articles",
+    "disclaimer": "Disclaimer",
+    "disclaimerDescription": [
+      "This site and gathering are an unofficial volunteer project created by fans of the 3D model \"Shipilka.\"",
+      "The model rights holder, \"かなﾘぁ\" (KANAlia), is not involved in the operation, funding, or content of this project. For inquiries, please contact the organizer, \"狐威ミコト\", or the staff."
+    ]
   },
   "seo": {
     "siteTitle": "Shipilka Gathering",
