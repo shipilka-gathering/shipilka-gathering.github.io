@@ -29,10 +29,10 @@
     "description": "An information site for the Shipilka Gathering held in VRChat, with event archives and participation rules.",
     "heroLines": [
       "The moon is full,",
-      "and many Shipilka-kuns",
+      "and many Shipilkas",
       "are waiting for you"
     ],
-    "heroBody": "Shipilka Gathering is an avatar meetup for Shipilka-kun, mainly held in VRChat. First-timers and returning visitors are both welcome.",
+    "heroBody": "Shipilka Gathering is a meetup for the Shipilka avatar, mainly held in VRChat. First-timers and returning visitors are both welcome.",
     "primaryCta": "See the latest event",
     "secondaryCta": "Join the group ↗",
     "latestSectionTitle": "Latest gathering",
@@ -41,66 +41,66 @@
       "That's the end of the scroll.",
       "Join the Shipilka Gathering"
     ],
-    "heroImageAlt": "An illustration of many Shipilka-kuns gathered around the moon",
-    "heroBottomAlt": "An illustration of many Shipilka-kuns standing on a mirror-like lake"
+    "heroImageAlt": "An illustration of many Shipilkas gathered around the moon",
+    "heroBottomAlt": "An illustration of many Shipilkas standing on a mirror-like lake"
   },
   "rules": {
     "title": "Before joining the gathering…",
     "sections": [
       {
-        "title": "Required",
-        "imageAlt": "An illustration of Shipilka-kun raising a finger to give a warning",
+        "title": "MUST",
+        "imageAlt": "An illustration of Shipilka raising a finger to give a warning",
         "items": [
           {
-            "text": "Please use a Shipilka-kun avatar.",
+            "text": "You must use the Shipilka avatar.",
             "children": [
-              "At minimum, use Shipilka-kun's face (Body)."
+              "At minimum, you must use the face (Body) of Shipilka."
             ]
           },
           {
-            "text": "Please follow any instructions from the staff.",
+            "text": "If the staffs give you instructions, please follow them.",
             "children": [
-              "Depending on crowding, you may be asked to move to a new instance."
+              "If the instance becomes too crowed, we may ask you to move to a new one."
             ]
           }
         ]
       },
       {
-        "title": "Allowed",
-        "imageAlt": "An illustration of Shipilka-kun standing in a welcoming pose",
+        "title": "CAN",
+        "imageAlt": "An illustration of Shipilka standing in a welcoming pose",
         "items": [
           {
-            "text": "You may join with a sample avatar.",
+            "text": "You can join with a sample avatar.",
             "children": [
-              "If you do not have a sample avatar, please ask a staff member."
+              "If you don’t have one, please ask the staff for help."
             ]
           },
           {
-            "text": "Photography is allowed inside the instance.",
+            "text": "You can take photos during the event.",
             "children": [
-              "Photos may be used on social media or in event announcements."
+              "Photos may be shared on social media or used for event announcements."
             ]
           }
         ]
       },
       {
-        "title": "Not allowed",
-        "imageAlt": "An illustration of Shipilka-kun upside down as a warning",
+        "title": "MUST NOT",
+        "imageAlt": "An illustration of Shipilka upside down as a warning",
         "items": [
           {
-            "text": "Do not use avatars that fall under any of the following:",
+            "text": "Do not use avatars that fall into any of the following categories:",
             "children": [
-              "Avatars containing sensitive content",
-              "Extreme chimera avatars that damage the avatar's reputation",
-              "Avatars that violate terms of use",
-              "Illegally uploaded avatars"
+              "Contain adult or explicit content",
+              "Are extreme or disrespectful “chimera” versions of the original avatar",
+              "Violate Terms of Service",
+              "Are illegally uploaded or distributed"
             ]
           },
           {
-            "text": "Harassment is not allowed."
+            "text": "Do not engage in harassment or rude behaviour."
           }
         ],
-        "footer": "Staff may remove you from the instance without prior notice at their discretion."
+        "footer": "The staff may remove you from the instance without prior warning."
       }
     ]
   },

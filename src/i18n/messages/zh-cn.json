@@ -1,7 +1,7 @@
 {
   "site": {
-    "name": "希皮尔卡君集会",
-    "logoAlt": "希皮尔卡君集会标志",
+    "name": "Shipilka君集会",
+    "logoAlt": "Shipilka君集会标志",
     "betaBadge": "测试版"
   },
   "nav": {
@@ -25,88 +25,88 @@
     "fallbackNote": "如果文章没有对应翻译，将跳转到该语言的文章列表。"
   },
   "home": {
-    "title": "希皮尔卡君集会",
-    "description": "这是在 VRChat 举办的希皮尔卡君集会信息站，整理了往期活动与参加规则。",
+    "title": "Shipilka君集会",
+    "description": "这是介绍 VRChat 中举办的Shipilka君集会的网站，整理了往届活动与参加规则。",
     "heroLines": [
       "满月已至，",
-      "许多希皮尔卡君",
+      "许多Shipilka君",
       "正在等你"
     ],
-    "heroBody": "希皮尔卡君集会是主要在 VRChat 举办的希皮尔卡君头像聚会。第一次参加也好，久违回归也好，都欢迎加入。",
+    "heroBody": "Shipilka君集会是主要在 VRChat 举办的Shipilka君模型聚会。无论是第一次参加，还是许久未见的朋友，都欢迎加入。",
     "primaryCta": "查看最新活动",
     "secondaryCta": "加入群组 ↗",
     "latestSectionTitle": "最新集会",
     "allEventsLink": "查看所有往期集会 →",
     "closingLines": [
       "已经滑到底了！",
-      "来参加希皮尔卡君集会吧"
+      "来参加Shipilka君集会吧"
     ],
-    "heroImageAlt": "许多希皮尔卡君围绕月亮聚集的插画",
-    "heroBottomAlt": "许多希皮尔卡君站在如镜湖面上的插画"
+    "heroImageAlt": "许多Shipilka君围绕月亮聚集的插画",
+    "heroBottomAlt": "许多Shipilka君站在如镜湖面上的插画"
   },
   "rules": {
     "title": "参加集会前请先阅读……",
     "sections": [
       {
-        "title": "必须遵守",
-        "imageAlt": "希皮尔卡君竖起手指提醒注意的插画",
+        "title": "必须事项",
+        "imageAlt": "Shipilka君竖起手指提醒注意的插画",
         "items": [
           {
-            "text": "请使用希皮尔卡君的头像参加。",
+            "text": "请使用 Shipilka君的模型（Avatar）。",
             "children": [
-              "至少请使用希皮尔卡君的脸部（Body）。"
+              "至少请使用 Shipilka君的面部（Body）部分。"
             ]
           },
           {
-            "text": "如果工作人员有指示，请务必配合。",
+            "text": "若有工作人员的指示，请务必配合。",
             "children": [
-              "根据现场拥挤情况，可能会请你移动到新的实例。"
+              "若房间人数过多，可能会请求您前往新的房间（Instance）。"
             ]
           }
         ]
       },
       {
-        "title": "可以做的事",
-        "imageAlt": "希皮尔卡君以欢迎姿势站立的插画",
+        "title": "允许事项",
+        "imageAlt": "Shipilka君以欢迎姿势站立的插画",
         "items": [
           {
-            "text": "可以使用示例头像参加。",
+            "text": "您可以使用样品模型（Sample Avatar） 参与活动。",
             "children": [
-              "如果没有示例头像，请向工作人员咨询。"
+              "如果您没有样品模型，请联系工作人员。"
             ]
           },
           {
-            "text": "可以在实例内拍摄照片。",
+            "text": "您可以在实例内进行拍照。",
             "children": [
-              "拍摄的图片可能会用于社交媒体或集会宣传。"
+              "拍摄的图片等可能会用于 社交媒体或活动宣传。"
             ]
           }
         ]
       },
       {
         "title": "禁止事项",
-        "imageAlt": "希皮尔卡君倒挂着提醒注意的插画",
+        "imageAlt": "Shipilka君倒挂着提醒注意的插画",
         "items": [
           {
-            "text": "禁止使用以下类型的头像：",
+            "text": "请勿使用以下类型的模型：",
             "children": [
-              "包含敏感内容的头像",
-              "严重损害头像名誉的极端奇美拉头像",
-              "违反使用条款的头像",
-              "非法上传的头像"
+              "含有敏感内容的模型",
+              "严重损害原始形象名誉的极端奇美拉模型",
+              "违反使用条款的模型",
+              "非法上传的模型"
             ]
           },
           {
-            "text": "禁止骚扰行为。"
+            "text": "禁止骚扰行为（Harassment）。"
           }
         ],
-        "footer": "工作人员可根据判断在不事先通知的情况下请你离开实例。"
+        "footer": "工作人员有权在无需提前通知的情况下，将您移出实例。"
       }
     ]
   },
   "events": {
     "listTitle": "活动一览",
-    "listDescription": "这里整理了至今举办过的希皮尔卡君集会。",
+    "listDescription": "这里整理了至今举办过的Shipilka君集会。",
     "detailDateLabel": "举办时间",
     "detailAnnouncementLabel": "公告推文",
     "detailAnnouncementEmpty": "目前还没有公告帖子。",
@@ -116,7 +116,7 @@
   },
   "articles": {
     "listTitle": "文章一览",
-    "listDescription": "关于希皮尔卡君集会的公告与记录。",
+    "listDescription": "关于Shipilka君集会的公告与记录。",
     "empty": "目前还没有公开文章。",
     "publishedOn": "发布日期"
   },
@@ -128,11 +128,11 @@
     "articlesLink": "文章一览"
   },
   "seo": {
-    "siteTitle": "希皮尔卡君集会",
-    "siteDescription": "希皮尔卡君集会信息站",
-    "eventsTitle": "活动一览 | 希皮尔卡君集会",
-    "eventsDescription": "希皮尔卡君集会的活动列表。",
-    "articlesTitle": "文章一览 | 希皮尔卡君集会",
-    "articlesDescription": "希皮尔卡君集会的文章列表。"
+    "siteTitle": "Shipilka君集会",
+    "siteDescription": "Shipilka君集会信息站",
+    "eventsTitle": "活动一览 | Shipilka君集会",
+    "eventsDescription": "Shipilka君集会的活动列表。",
+    "articlesTitle": "文章一览 | Shipilka君集会",
+    "articlesDescription": "Shipilka君集会的文章列表。"
   }
 }
