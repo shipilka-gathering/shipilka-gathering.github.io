@@ -1,0 +1,43 @@
+{
+  "id": "2026-04-01",
+  "slug": "2026-04-01",
+  "date": "2026-04-01T21:30:00+09:00",
+  "tweet": "2034245937103597963",
+  "translations": {
+    "ja": {
+      "title": "シピルカくん3歳のお誕生日会",
+      "tags": [
+        "VRChat",
+        "シピルカくん集会"
+      ]
+    },
+    "en": {
+      "title": "Shipilka's 3rd Birthday Party",
+      "tags": [
+        "VRChat",
+        "Shipilka Gathering"
+      ]
+    },
+    "ko": {
+      "title": "시필카군 생일잔치",
+      "tags": [
+        "VRChat",
+        "시필카군 모임"
+      ]
+    },
+    "zh-cn": {
+      "title": "Shipilka君生日会",
+      "tags": [
+        "VRChat",
+        "Shipilka君集会"
+      ]
+    },
+    "zh-tw": {
+      "title": "Shipilka君生日會",
+      "tags": [
+        "VRChat",
+        "Shipilka君集會"
+      ]
+    }
+  }
+}
