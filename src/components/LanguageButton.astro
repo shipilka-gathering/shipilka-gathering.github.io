@@ -1,0 +1,17 @@
+---
+const {
+  href,
+  class: className = "",
+} = Astro.props as {
+  href: string;
+  class?: string;
+};
+---
+
+<a
+  class={`inline-flex items-center justify-center gap-2 rounded-full border border-[rgba(255,255,255,0.55)] bg-[rgba(255,255,255,0.12)] px-4 py-2 font-semibold text-[#f2f5ff] no-underline [transition:transform_0.15s_ease,background_0.2s_ease,border-color_0.2s_ease] hover:-translate-y-[1px] hover:border-[rgba(255,255,255,0.75)] hover:bg-[rgba(255,255,255,0.18)] ${className}`}
+  href={href}
+>
+  <span aria-hidden="true">🌐</span>
+  <span>Language</span>
+</a>

@@ -1,0 +1,138 @@
+{
+  "site": {
+    "name": "시필카군 모임",
+    "logoAlt": "시필카군 모임 로고",
+    "betaBadge": "베타"
+  },
+  "nav": {
+    "home": "홈",
+    "events": "이벤트",
+    "articles": "글",
+    "vrchatGroup": "VRChat 그룹 ↗",
+    "twitter": "Twitter ↗",
+    "discord": "Discord ↗"
+  },
+  "languageSwitcher": {
+    "label": "언어",
+    "current": "현재 언어"
+  },
+  "languagePage": {
+    "title": "언어 선택",
+    "description": "표시할 언어를 선택해 주세요. 현재 페이지의 번역이 있으면 해당 페이지로 바로 이동합니다.",
+    "intro": "선택한 언어로 전환합니다.",
+    "destinationLabel": "이동 대상",
+    "currentBadge": "현재 언어",
+    "fallbackNote": "번역이 없는 글은 해당 언어의 글 목록으로 이동합니다."
+  },
+  "home": {
+    "title": "시필카군 모임",
+    "description": "VRChat에서 열리는 시필카군 모임 안내 사이트입니다. 지난 이벤트와 참가 규칙을 정리했습니다.",
+    "heroLines": [
+      "달은 차올랐고,",
+      "수많은 시필카군이",
+      "당신을 기다리고 있습니다"
+    ],
+    "heroBody": "시필카군 모임은 주로 VRChat에서 열리는 시필카군 아바타 모임입니다. 처음 오시는 분도, 오랜만에 오시는 분도 모두 환영합니다.",
+    "primaryCta": "최신 이벤트 보기",
+    "secondaryCta": "그룹 참가하기 ↗",
+    "latestSectionTitle": "최신 모임",
+    "allEventsLink": "지난 모임 모두 보기 →",
+    "closingLines": [
+      "스크롤은 여기까지!",
+      "시필카군 모임에 참여해 보세요"
+    ],
+    "heroImageAlt": "많은 시필카군이 달 주위에 모여 있는 일러스트",
+    "heroBottomAlt": "많은 시필카군이 거울 같은 호수 위에 서 있는 일러스트"
+  },
+  "rules": {
+    "title": "모임에 참가하기 전에…",
+    "sections": [
+      {
+        "title": "의무 사항",
+        "imageAlt": "시필카군이 손가락을 들어 주의를 주는 일러스트",
+        "items": [
+          {
+            "text": "시필카군 아바타를 사용해 주세요.",
+            "children": [
+              "최소한 시필카군의 얼굴(Body)을 사용해 주세요."
+            ]
+          },
+          {
+            "text": "스태프의 안내가 있을 경우 따라 주세요.",
+            "children": [
+              "혼잡할 경우, 새 인스턴스로 이동을 요청드릴 수 있습니다."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "허용 사항",
+        "imageAlt": "시필카군이 환영하는 자세로 서 있는 일러스트",
+        "items": [
+          {
+            "text": "샘플 아바타로도 참여할 수 있습니다.",
+            "children": [
+              "샘플 아바타가 없는 경우, 스태프에게 문의해 주세요."
+            ]
+          },
+          {
+            "text": "인스턴스 내에서는 촬영이 가능합니다.",
+            "children": [
+              "촬영된 사진 등은 SNS나 행사 안내에 사용될 수 있습니다."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "금지 사항",
+        "imageAlt": "시필카군이 거꾸로 매달린 채 주의를 주는 일러스트",
+        "items": [
+          {
+            "text": "다음에 해당하는 아바타는 사용할 수 없습니다:",
+            "children": [
+              "민감한 내용을 포함한 아바타",
+              "아바타의 명예를 훼손하는 극단적인 키메라 아바타",
+              "이용 약관을 위반한 아바타",
+              "불법 업로드된 아바타"
+            ]
+          },
+          {
+            "text": "괴롭힘이나 성희롱 행위는 금지됩니다."
+          }
+        ],
+        "footer": "주최자의 판단에 따라 경고 없이 인스턴스에서 퇴장 조치될 수 있습니다."
+      }
+    ]
+  },
+  "events": {
+    "listTitle": "이벤트 목록",
+    "listDescription": "지금까지 개최된 시필카군 모임을 정리했습니다.",
+    "detailDateLabel": "개최 일시",
+    "detailAnnouncementLabel": "공지 트윗",
+    "detailAnnouncementEmpty": "아직 공지 게시물이 없습니다.",
+    "tagsLabel": "태그",
+    "cardTagLabelPrefix": "태그",
+    "empty": "예정된 이벤트가 아직 없습니다."
+  },
+  "articles": {
+    "listTitle": "글 목록",
+    "listDescription": "시필카군 모임에 관한 공지와 기록입니다.",
+    "empty": "공개된 글이 아직 없습니다.",
+    "publishedOn": "게시일"
+  },
+  "footer": {
+    "languagesTitle": "언어",
+    "socialTitle": "소셜 미디어",
+    "siteTitle": "사이트",
+    "eventsLink": "이벤트 목록",
+    "articlesLink": "글 목록"
+  },
+  "seo": {
+    "siteTitle": "시필카군 모임",
+    "siteDescription": "시필카군 모임 안내 사이트",
+    "eventsTitle": "이벤트 목록 | 시필카군 모임",
+    "eventsDescription": "시필카군 모임의 이벤트 목록입니다.",
+    "articlesTitle": "글 목록 | 시필카군 모임",
+    "articlesDescription": "시필카군 모임 글 목록입니다."
+  }
+}

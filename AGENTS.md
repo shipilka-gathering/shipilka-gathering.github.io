@@ -8,3 +8,12 @@
 
 - ファイル書き込みの Encoding 指定（必須）
   - `Out-File -Encoding utf8` / `Set-Content -Encoding utf8` / `Add-Content -Encoding utf8`
+
+## 翻訳
+
+- 「シピルカくん」は以下のように翻訳すること
+  - 시필카군（韓国語）
+  - Shipilka君（中国語）
+  - Shipilka（英語、ラテン文字）
+
+中国語については、アバターを「模型」として翻訳すること。

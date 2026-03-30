@@ -1,0 +1,138 @@
+{
+  "site": {
+    "name": "Shipilka君集會",
+    "logoAlt": "Shipilka君集會標誌",
+    "betaBadge": "測試版"
+  },
+  "nav": {
+    "home": "首頁",
+    "events": "活動",
+    "articles": "文章",
+    "vrchatGroup": "VRChat 群組 ↗",
+    "twitter": "Twitter ↗",
+    "discord": "Discord ↗"
+  },
+  "languageSwitcher": {
+    "label": "語言",
+    "current": "目前語言"
+  },
+  "languagePage": {
+    "title": "選擇語言",
+    "description": "請選擇想查看的語言。若目前頁面有對應翻譯，會直接帶你前往該頁面。",
+    "intro": "切換到所選語言。",
+    "destinationLabel": "前往頁面",
+    "currentBadge": "目前語言",
+    "fallbackNote": "如果文章沒有對應翻譯，將前往該語言的文章列表。"
+  },
+  "home": {
+    "title": "Shipilka君集會",
+    "description": "這是介紹 VRChat 中舉辦的Shipilka君集會的資訊網站，整理了歷次活動與參加規則。",
+    "heroLines": [
+      "滿月升起，",
+      "許多Shipilka君",
+      "正在等你"
+    ],
+    "heroBody": "Shipilka君集會是主要在 VRChat 舉辦的Shipilka君模型聚會。無論是第一次參加，還是久違地回來看看，都歡迎加入。",
+    "primaryCta": "查看最新活動",
+    "secondaryCta": "加入群組 ↗",
+    "latestSectionTitle": "最新集會",
+    "allEventsLink": "查看所有歷次集會 →",
+    "closingLines": [
+      "已經滑到底了！",
+      "一起來參加Shipilka君集會吧"
+    ],
+    "heroImageAlt": "許多Shipilka君圍繞月亮聚集的插畫",
+    "heroBottomAlt": "許多Shipilka君站在如鏡湖面上的插畫"
+  },
+  "rules": {
+    "title": "參加集會前請先閱讀……",
+    "sections": [
+      {
+        "title": "必須遵守",
+        "imageAlt": "Shipilka君舉起手指提醒注意的插畫",
+        "items": [
+          {
+            "text": "請使用Shipilka君的模型參加。",
+            "children": [
+              "至少請使用Shipilka君的臉部（Body）部分。"
+            ]
+          },
+          {
+            "text": "若工作人員有指示，請務必配合。",
+            "children": [
+              "如果現場過於擁擠，可能會請你移動到新的房間（instance）。"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "可以做的事",
+        "imageAlt": "Shipilka君以歡迎姿勢站立的插畫",
+        "items": [
+          {
+            "text": "可以使用範例模型參加。",
+            "children": [
+              "如果沒有範例模型，請向工作人員詢問。"
+            ]
+          },
+          {
+            "text": "可以在房間（instance）內拍照。",
+            "children": [
+              "拍攝的照片可能會用於社群媒體或集會宣傳。"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "禁止事項",
+        "imageAlt": "Shipilka君倒掛著提醒注意的插畫",
+        "items": [
+          {
+            "text": "禁止使用以下類型的模型：",
+            "children": [
+              "包含敏感內容的模型",
+              "嚴重損害原始形象名譽的極端奇美拉模型",
+              "違反使用條款的模型",
+              "非法上傳的模型"
+            ]
+          },
+          {
+            "text": "禁止騷擾行為。"
+          }
+        ],
+        "footer": "工作人員可視情況在未事先通知的情況下請你離開房間（instance）。"
+      }
+    ]
+  },
+  "events": {
+    "listTitle": "活動一覽",
+    "listDescription": "這裡整理了至今舉辦過的Shipilka君集會。",
+    "detailDateLabel": "舉辦時間",
+    "detailAnnouncementLabel": "公告推文",
+    "detailAnnouncementEmpty": "目前還沒有公告貼文。",
+    "tagsLabel": "標籤",
+    "cardTagLabelPrefix": "標籤",
+    "empty": "目前還沒有預定活動。"
+  },
+  "articles": {
+    "listTitle": "文章一覽",
+    "listDescription": "關於Shipilka君集會的公告與記錄。",
+    "empty": "目前還沒有公開文章。",
+    "publishedOn": "發布日期"
+  },
+  "footer": {
+    "languagesTitle": "語言",
+    "socialTitle": "社群媒體",
+    "siteTitle": "網站",
+    "eventsLink": "活動一覽",
+    "articlesLink": "文章一覽"
+  },
+  "seo": {
+    "siteTitle": "Shipilka君集會",
+    "siteDescription": "Shipilka君集會資訊網站",
+    "eventsTitle": "活動一覽 | Shipilka君集會",
+    "eventsDescription": "Shipilka君集會的活動列表。",
+    "articlesTitle": "文章一覽 | Shipilka君集會",
+    "articlesDescription": "Shipilka君集會的文章列表。"
+  }
+}
