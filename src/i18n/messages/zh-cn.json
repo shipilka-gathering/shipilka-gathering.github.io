@@ -124,7 +124,12 @@
     "socialTitle": "社交媒体",
     "siteTitle": "站点",
     "eventsLink": "活动一览",
-    "articlesLink": "文章一览"
+    "articlesLink": "文章一览",
+    "disclaimer": "免责声明",
+    "disclaimerDescription": [
+      "本网站（以及本集会）是由 3D 模型“Shipilka君”的粉丝自发组织的非官方项目。",
+      "作为模型权利人的“かなﾘぁ”(KANAlia)老师并未参与本项目的运营、资金管理及内容。若有任何问题，请联系主办者“狐威ミコト”或工作人员。"
+    ]
   },
   "seo": {
     "siteTitle": "Shipilka君集会",
